@@ -46,6 +46,9 @@
         "patches": {
             "drupal/schema_metatag": {
               "Add @id as a tag to all schemas": "https://www.drupal.org/files/issues/2019-09-01/3078582-03.patch"
+            },
+            "drupal/cloudflare": {
+                "Cache-Tag header limit is incorrect": "https://git.drupalcode.org/project/cloudflare/-/merge_requests/2.diff"
             }
         },
         "drupal-scaffold": {
