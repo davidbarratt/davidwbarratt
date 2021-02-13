@@ -10,6 +10,18 @@
     },
     "repositories": [
         {
+            "type": "package",
+            "package": {
+                "name": "drupal/cloudflare_worker_purge",
+                "version": "dev-master",
+                "type": "drupal-custom-module",
+                "dist": {
+                    "type": "path",
+                    "url": "./modules/cloudflare_worker_purge"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -19,6 +31,7 @@
         "cweagans/composer-patches": "^1.7",
         "d8-contrib-modules/cloudflarephpsdk": "^1.0@alpha",
         "drupal/cloudflare": "^1.0@beta",
+        "drupal/cloudflare_worker_purge": "dev-master",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
@@ -48,7 +61,7 @@
               "Add @id as a tag to all schemas": "https://www.drupal.org/files/issues/2019-09-01/3078582-03.patch"
             },
             "drupal/cloudflare": {
-                "Cache-Tag header limit is incorrect": "https://git.drupalcode.org/project/cloudflare/-/merge_requests/2.diff"
+                "Cache-Tag header limit is incorrectc": "https://git.drupalcode.org/project/cloudflare/-/merge_requests/2.diff"
             }
         },
         "drupal-scaffold": {

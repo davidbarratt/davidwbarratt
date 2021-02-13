@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "646255fa4420b1ba2d3fb9183f3c234d",
+    "content-hash": "6193da59ebfa82d8e997e2083237cb72",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1427,6 +1427,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Cache-Tag header limit is incorrectc": "https://git.drupalcode.org/project/cloudflare/-/merge_requests/2.diff"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1474,6 +1477,15 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/cloudflare"
             }
+        },
+        {
+            "name": "drupal/cloudflare_worker_purge",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./modules/cloudflare_worker_purge"
+            },
+            "type": "drupal-custom-module"
         },
         {
             "name": "drupal/core",
@@ -7298,6 +7310,7 @@
     "stability-flags": {
         "d8-contrib-modules/cloudflarephpsdk": 15,
         "drupal/cloudflare": 10,
+        "drupal/cloudflare_worker_purge": 20,
         "drupal/name": 5
     },
     "prefer-stable": true,
