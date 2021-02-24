@@ -1,8 +1,7 @@
 name: Cloudflare Worker Purge
 type: module
 description: Purge with a Cloudflare Worker
-package: Purge - reverse proxies &amp; CDNs
-core: 8.x
+package: Purge - reverse proxies & CDNs
 core_version_requirement: ^8 || ^9
 dependencies:
-  - cloudflarepurger
+  - cloudflare:cloudflarepurger

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset>
+  <rule ref="./vendor/drupal/coder/coder_sniffer/Drupal" />
+  <rule ref="./vendor/drupal/coder/coder_sniffer/DrupalPractice" />
+
+  <file>./assets</file>
+  <file>./modules</file>
+</ruleset>

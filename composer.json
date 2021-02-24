@@ -105,5 +105,8 @@
                 "type:drupal-custom-theme"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3"
     }
 }
