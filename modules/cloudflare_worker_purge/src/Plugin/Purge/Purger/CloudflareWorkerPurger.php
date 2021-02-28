@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Promise\Utils;
+use Psr\Log\LoggerInterface;
 
 /**
  * Cloudflare Worker purger.
@@ -27,16 +28,23 @@ class CloudflareWorkerPurger extends PurgerBase {
   /**
    * HTTP Client.
    *
-   * @var GuzzleHttp\ClientInterface
+   * @var \GuzzleHttp\ClientInterface
    */
   protected $client;
 
   /**
    * Cloudflare Config.
    *
-   * @var Drupal\Core\Config\Config
+   * @var \Drupal\Core\Config\Config
    */
   protected $config;
+
+  /**
+   * A logger instance.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
 
   /**
    * {@inheritdoc}
@@ -46,12 +54,14 @@ class CloudflareWorkerPurger extends PurgerBase {
     $plugin_id,
     $plugin_definition,
     Config $config,
-    ClientInterface $client
+    ClientInterface $client,
+    LoggerInterface $logger
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->config = $config;
     $this->client = $client;
+    $this->logger = $logger;
   }
 
   /**
@@ -63,8 +73,16 @@ class CloudflareWorkerPurger extends PurgerBase {
       $plugin_id,
       $plugin_definition,
       $container->get('config.factory')->get('cloudflare.settings'),
-      $container->get('http_client')
+      $container->get('http_client'),
+      $container->get('logger.factory')->get('cloudflare')
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getIdealConditionsLimit() {
+    return CloudFlareAPI::MAX_TAG_PURGES_PER_REQUEST * 10;
   }
 
   /**
@@ -89,7 +107,7 @@ class CloudflareWorkerPurger extends PurgerBase {
 
     $promises = array_map(function ($chunk) {
       // @todo Make the URL configurable!
-      return $this->client->getAsync('https://davidwbarratt.com/.cloudflare/purge', [
+      return $this->client->postAsync('https://davidwbarratt.com/.cloudflare/purge', [
         'headers' => [
           'CF-Zone' => $this->config->get('zone_id'),
           'X-Auth-Email' => $this->config->get('email'),
@@ -101,6 +119,8 @@ class CloudflareWorkerPurger extends PurgerBase {
       ])->then(function ($response) use ($chunk) {
         return $chunk;
       }, function (ClientException $e) {
+        $this->logger->error($e->getMessage());
+
         // None of the tags were resolved.
         return [];
       });
