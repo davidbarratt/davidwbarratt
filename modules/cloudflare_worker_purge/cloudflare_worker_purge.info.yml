@@ -4,4 +4,4 @@ description: Purge with a Cloudflare Worker
 package: Purge - reverse proxies & CDNs
 core_version_requirement: ^8 || ^9
 dependencies:
-  - cloudflare:cloudflarepurger
+  - cloudflare:cloudflare
