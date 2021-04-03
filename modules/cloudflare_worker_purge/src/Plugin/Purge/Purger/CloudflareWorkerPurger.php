@@ -82,7 +82,7 @@ class CloudflareWorkerPurger extends PurgerBase {
    * {@inheritdoc}
    */
   public function getIdealConditionsLimit() {
-    return CloudFlareAPI::MAX_TAG_PURGES_PER_REQUEST * 10;
+    return CloudFlareAPI::MAX_TAG_PURGES_PER_REQUEST;
   }
 
   /**
