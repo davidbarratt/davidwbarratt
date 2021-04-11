@@ -21,6 +21,7 @@ use Psr\Log\LoggerInterface;
  *   description = @Translation("Purger for Cloudflare Worker."),
  *   types = {"tag"},
  *   multi_instance = FALSE,
+ *   configform = "\Drupal\cloudflare_worker_purge\Form\CloudflareWorkerPurgeForm",
  * )
  */
 class CloudflareWorkerPurger extends PurgerBase {
@@ -33,11 +34,18 @@ class CloudflareWorkerPurger extends PurgerBase {
   protected $client;
 
   /**
-   * Cloudflare Config.
+   * Cloudflare Worker Purge Config.
    *
    * @var \Drupal\Core\Config\Config
    */
   protected $config;
+
+  /**
+   * Cloudflare Config.
+   *
+   * @var \Drupal\Core\Config\Config
+   */
+  protected $cloudflareConfig;
 
   /**
    * A logger instance.
@@ -53,12 +61,14 @@ class CloudflareWorkerPurger extends PurgerBase {
     array $configuration,
     $plugin_id,
     $plugin_definition,
+    Config $cloudflareConfig,
     Config $config,
     ClientInterface $client,
     LoggerInterface $logger
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
+    $this->cloudflareConfig = $cloudflareConfig;
     $this->config = $config;
     $this->client = $client;
     $this->logger = $logger;
@@ -73,6 +83,7 @@ class CloudflareWorkerPurger extends PurgerBase {
       $plugin_id,
       $plugin_definition,
       $container->get('config.factory')->get('cloudflare.settings'),
+      $container->get('config.factory')->get('cloudflare_worker_purge.settings'),
       $container->get('http_client'),
       $container->get('logger.factory')->get('cloudflare')
     );
@@ -96,6 +107,19 @@ class CloudflareWorkerPurger extends PurgerBase {
    * {@inheritdoc}
    */
   public function invalidate(array $invalidations) {
+    $url = $this->config->get('url');
+
+    if (empty($url)) {
+      $this->logger->error('Purge URL not set');
+
+      // Set the state of each invalidation.
+      foreach ($invalidations as $invalidation) {
+        $invalidation->setState(InvalidationInterface::FAILED);
+      }
+
+      return;
+    }
+
     if (empty($invalidations)) {
       return;
     }
@@ -106,12 +130,11 @@ class CloudflareWorkerPurger extends PurgerBase {
     }, $invalidations));
 
     $promises = array_map(function ($chunk) {
-      // @todo Make the URL configurable!
-      return $this->client->postAsync('https://davidwbarratt.com/.cloudflare/purge', [
+      return $this->client->postAsync($url, [
         'headers' => [
-          'CF-Zone' => $this->config->get('zone_id'),
-          'X-Auth-Email' => $this->config->get('email'),
-          'X-Auth-Key' => $this->config->get('apikey'),
+          'CF-Zone' => $this->cloudflareConfig->get('zone_id'),
+          'X-Auth-Email' => $this->cloudflareConfig->get('email'),
+          'X-Auth-Key' => $this->cloudflareConfig->get('apikey'),
         ],
         'json' => [
           'tags' => $chunk,
