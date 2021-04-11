@@ -10,8 +10,8 @@ dependencies:
     - olivero
 id: copyright_2
 theme: olivero
-region: footer_bottom
-weight: 0
+region: footer_top
+weight: -6
 provider: null
 plugin: 'block_content:e0696b91-399d-4258-a6d2-c32cc84c4363'
 settings:

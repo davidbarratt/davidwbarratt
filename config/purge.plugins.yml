@@ -1,17 +1,20 @@
 purgers:
   -
     order_index: 2
-    instance_id: 04e6e43d38
-    plugin_id: cloudflare
+    instance_id: 5c0c7e9953
+    plugin_id: cloudflare_worker
 queuers:
   -
     plugin_id: coretags
-    status: false
-  -
-    plugin_id: urlpath
     status: true
   -
+    plugin_id: urlpath
+    status: false
+  -
     plugin_id: purge_ui_block_queuer
+    status: false
+  -
+    plugin_id: drush_purge_queue_add
     status: false
 processors:
   -
@@ -20,3 +23,4 @@ processors:
   -
     plugin_id: purge_ui_block_processor
     status: false
+queue: database

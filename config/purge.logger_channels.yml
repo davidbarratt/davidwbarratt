@@ -1,23 +1,34 @@
 channels:
-  -
+  0:
     id: purgers
     grants:
       - 0
+      - 1
       - 2
       - 3
-  -
+      - 4
+  1:
     id: queue
     grants:
       - 0
+      - 1
       - 2
       - 3
-  -
-    id: purger_cloudflare_04e6e43d38
+      - 4
+  3:
+    id: diagnostics
+    grants:
+      - 3
+  4:
+    id: purger_httpbundled_524f59d103
+    grants:
+      - 0
+      - 1
+      - 2
+      - 3
+  5:
+    id: purger_cloudflare_worker_5c0c7e9953
     grants:
       - 0
       - 2
-      - 3
-  -
-    id: diagnostics
-    grants:
       - 3

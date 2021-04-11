@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - field.field.node.article.field_update
     - node.type.article
   module:
     - comment
@@ -54,13 +53,5 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  field_update:
-    weight: 1
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
 hidden:
   links: true

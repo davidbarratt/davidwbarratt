@@ -1,17 +1,17 @@
-uuid: c20f14d8-5e45-4447-b9e7-2ff00bf77a1e
+uuid: bed65fc4-1e8c-41fb-8cdb-8c87baa2abde
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - olivero
+    - claro
 _core:
-  default_config_hash: KfyaTPRJEcAyy2e5AxEfWQnuHcn4WrfvcWek7lSmHZQ
-id: olivero_messages
-theme: olivero
+  default_config_hash: iIy-YIc9d9s1isAtTIKWDBKd6kd2r6LxoYz_-hkLJco
+id: claro_messages
+theme: claro
 region: highlighted
-weight: -6
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:

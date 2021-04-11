@@ -5,7 +5,7 @@ module:
   breakpoint: 0
   ckeditor: 0
   cloudflare: 0
-  cloudflarepurger: 0
+  cloudflare_worker_purge: 0
   color: 0
   comment: 0
   config: 0
@@ -21,7 +21,6 @@ module:
   file_mdm: 0
   file_mdm_exif: 0
   filter: 0
-  http_cache_control: 0
   image: 0
   imagemagick: 0
   layout_discovery: 0
@@ -40,9 +39,9 @@ module:
   path: 0
   path_alias: 0
   purge: 0
+  purge_drush: 0
   purge_processor_lateruntime: 0
   purge_queuer_coretags: 0
-  purge_queuer_url: 0
   purge_ui: 0
   quickedit: 0
   responsive_image: 0
@@ -68,6 +67,7 @@ theme:
   bartik: 0
   seven: 0
   olivero: 0
+  claro: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

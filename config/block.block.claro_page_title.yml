@@ -1,13 +1,15 @@
-uuid: feb842e4-bc20-48bc-a1d5-94ff69a9537b
+uuid: 299067ba-0f06-4577-8694-4eeee9ff315a
 langcode: en
 status: true
 dependencies:
   theme:
-    - seven
-id: seven_pagetitle
-theme: seven
+    - claro
+_core:
+  default_config_hash: gfXKmThltk6eewwrjAEaxVPxzPEVHV1UfNjjOUQ5A7g
+id: claro_page_title
+theme: claro
 region: header
-weight: -4
+weight: -30
 provider: null
 plugin: page_title_block
 settings:

@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - field.field.node.article.field_update
     - node.type.article
   module:
     - comment
@@ -60,16 +59,6 @@ content:
       placeholder: ''
       match_limit: 10
     third_party_settings: {  }
-  field_update:
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   path:
     type: path
     weight: 9
