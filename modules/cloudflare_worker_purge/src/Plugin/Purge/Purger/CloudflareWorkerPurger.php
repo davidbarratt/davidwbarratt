@@ -129,7 +129,7 @@ class CloudflareWorkerPurger extends PurgerBase {
       return $invalidation->getExpression();
     }, $invalidations));
 
-    $promises = array_map(function ($chunk) {
+    $promises = array_map(function ($chunk) use ($url) {
       return $this->client->postAsync($url, [
         'headers' => [
           'CF-Zone' => $this->cloudflareConfig->get('zone_id'),
