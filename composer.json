@@ -10,18 +10,6 @@
     },
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "drupal/cloudflare_worker_purge",
-                "version": "dev-master",
-                "type": "drupal-custom-module",
-                "dist": {
-                    "type": "path",
-                    "url": "./modules/cloudflare_worker_purge"
-                }
-            }
-        },
-        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -31,7 +19,7 @@
         "cweagans/composer-patches": "^1.7",
         "d8-contrib-modules/cloudflarephpsdk": "^1.0@alpha",
         "drupal/cloudflare": "^1.0@beta",
-        "drupal/cloudflare_worker_purge": "dev-master",
+        "drupal/cloudflare_worker_purge": "^1.0@rc",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
