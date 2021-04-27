@@ -818,3 +818,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+
+/**
+ * Amazon S3
+ */
+$settings['s3fs.access_key'] = $_SERVER['S3_ACCESS_KEY'] ?? '';
+$settings['s3fs.secret_key'] = $_SERVER['S3_SECRET_KEY'] ?? '';
