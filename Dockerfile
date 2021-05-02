@@ -1,5 +1,7 @@
 FROM davidbarratt/drupal:9
 
+LABEL org.opencontainers.image.source https://github.com/davidbarratt/davidwbarratt
+
 COPY ./ /opt/drupal
 
 RUN composer --no-dev install
