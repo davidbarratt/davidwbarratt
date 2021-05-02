@@ -21,4 +21,4 @@ jobs:
           method: service-account
           k8s-url: ${{ secrets.K8S_URL }}
           k8s-secret: ${{ secrets.K8S_SECRET }}
-      - run: kubectl set image statefulset/davidwbarratt backup=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/${GITHUB_REPOSITORY})
+      - run: kubectl set image statefulset/davidwbarratt web=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/${GITHUB_REPOSITORY})
