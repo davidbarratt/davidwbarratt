@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker login ghcr.io -u davidbarratt --password ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - run: docker build --tag ghcr.io/${GITHUB_REPOSITORY} .
       - run: docker push ghcr.io/${GITHUB_REPOSITORY}
       - uses: azure/setup-kubectl@v1
