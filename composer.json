@@ -52,9 +52,6 @@
                 "web-root": "web/"
             },
             "file-mapping": {
-                "[web-root]/.htaccess": {
-                    "prepend": "assets/htaccess"
-                },
                 "[web-root]/sites/default/services.yml": "assets/services.yml",
                 "[web-root]/sites/default/settings.php": "assets/settings.php"
             }

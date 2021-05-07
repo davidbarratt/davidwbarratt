@@ -287,7 +287,7 @@ $settings['config_sync_directory'] = '../config';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = $_SERVER['HASH_STALT'] ?? '';
+$settings['hash_salt'] = getenv('HASH_STALT') ?: '';
 
 /**
  * Deployment identifier.
@@ -636,7 +636,7 @@ $settings['reverse_proxy_addresses'] = [
  */
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['user.settings']['anonymous'] = 'Visitor';
-if ($_SERVER['APP_DEBUG'] ?? false) {
+if (getenv('APP_DEBUG') ?: false) {
   $config['system.logging']['error_level'] = 'verbose';
   $config['system.performance']['cache']['page']['max_age'] = 0;
   $config['system.performance']['css']['preprocess'] = false;
@@ -652,14 +652,14 @@ $smtp = [
 ];
 
 foreach ($smtp as $key) {
-  if (isset($_SERVER[strtoupper($key)])) {
-    $config['smtp.settings'][$key] = $_SERVER[strtoupper($key)];
+  if (getenv(strtoupper($key)) !== FALSE) {
+    $config['smtp.settings'][$key] = getenv(strtoupper($key));
   }
 }
 
-$config['cloudflare.settings']['apikey'] = $_SERVER['CF_API_KEY'] ?? '';
-$config['cloudflare.settings']['email'] = $_SERVER['CF_EMAIL'] ?? '';
-$config['cloudflare.settings']['zone_id'] = $_SERVER['CF_ZONE_ID'] ?? '';
+$config['cloudflare.settings']['apikey'] = getenv('CF_API_KEY') ?: '';
+$config['cloudflare.settings']['email'] = getenv('CF_EMAIL') ?: '';
+$config['cloudflare.settings']['zone_id'] = getenv('CF_ZONE_ID') ?: '';
 
 /**
  * Fast 404 pages:
@@ -823,5 +823,5 @@ $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
 /**
  * Amazon S3
  */
-$settings['s3fs.access_key'] = $_SERVER['S3_ACCESS_KEY'] ?? '';
-$settings['s3fs.secret_key'] = $_SERVER['S3_SECRET_KEY'] ?? '';
+$settings['s3fs.access_key'] = getenv('S3_ACCESS_KEY') ?: '';
+$settings['s3fs.secret_key'] = getenv('S3_SECRET_KEY') ?: '';
