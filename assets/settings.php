@@ -636,7 +636,7 @@ $settings['reverse_proxy_addresses'] = [
  */
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['user.settings']['anonymous'] = 'Visitor';
-if (getenv('APP_DEBUG') ?: false) {
+if (getenv('APP_DEBUG')) {
   $config['system.logging']['error_level'] = 'verbose';
   $config['system.performance']['cache']['page']['max_age'] = 0;
   $config['system.performance']['css']['preprocess'] = false;
