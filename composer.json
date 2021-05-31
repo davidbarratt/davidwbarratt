@@ -20,6 +20,7 @@
         "d8-contrib-modules/cloudflarephpsdk": "^1.0@alpha",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/cloudflare_worker_purge": "^1.0@rc",
+        "drupal/codesnippet": "^1.7",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
