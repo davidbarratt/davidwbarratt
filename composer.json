@@ -47,9 +47,6 @@
         "patches": {
             "drupal/schema_metatag": {
               "Add @id as a tag to all schemas": "https://www.drupal.org/files/issues/2019-09-01/3078582-03.patch"
-            },
-            "drupal/core": {
-                "Olivero should not expect its default menu blocks to always exist": "https://www.drupal.org/files/issues/2021-09-05/3231416-5.patch"
             }
         },
         "drupal-scaffold": {
