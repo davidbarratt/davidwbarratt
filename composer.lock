@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.237.1",
+            "version": "3.238.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4667dd4b863a8686417e0d2a50da8682d8b68bb5"
+                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4667dd4b863a8686417e0d2a50da8682d8b68bb5",
-                "reference": "4667dd4b863a8686417e0d2a50da8682d8b68bb5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/14fb64c934614ea5a52c9931189f687f30b6ba3b",
+                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b",
                 "shasum": ""
             },
             "require": {
@@ -202,9 +202,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.237.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.238.3"
             },
-            "time": "2022-09-30T18:15:04+00:00"
+            "time": "2022-10-07T18:16:40+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1883,16 +1883,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.4.7",
+            "version": "9.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "247431af7e33a8cf7c46677a79336103c6e83db1"
+                "reference": "a627d1b2a00f2cef0572e37b94dea298800541f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/247431af7e33a8cf7c46677a79336103c6e83db1",
-                "reference": "247431af7e33a8cf7c46677a79336103c6e83db1",
+                "url": "https://api.github.com/repos/drupal/core/zipball/a627d1b2a00f2cef0572e37b94dea298800541f4",
+                "reference": "a627d1b2a00f2cef0572e37b94dea298800541f4",
                 "shasum": ""
             },
             "require": {
@@ -2044,13 +2044,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.4.7"
+                "source": "https://github.com/drupal/core/tree/9.4.8"
             },
-            "time": "2022-09-28T16:19:47+00:00"
+            "time": "2022-10-06T15:57:08+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.4.7",
+            "version": "9.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2094,13 +2094,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.4.7"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.4.8"
             },
             "time": "2022-06-19T16:14:23+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.4.7",
+            "version": "9.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2135,22 +2135,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.5.0-beta1"
+                "source": "https://github.com/drupal/core-project-message/tree/9.5.0-beta2"
             },
             "time": "2022-02-24T17:40:53+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.4.7",
+            "version": "9.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "287868a598996f1eb04ea57dbefb741d3784db23"
+                "reference": "684cc844f7b729286f5d62f1ee4b20ab12586502"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/287868a598996f1eb04ea57dbefb741d3784db23",
-                "reference": "287868a598996f1eb04ea57dbefb741d3784db23",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/684cc844f7b729286f5d62f1ee4b20ab12586502",
+                "reference": "684cc844f7b729286f5d62f1ee4b20ab12586502",
                 "shasum": ""
             },
             "require": {
@@ -2159,7 +2159,7 @@
                 "doctrine/annotations": "~1.13.2",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.4.7",
+                "drupal/core": "9.4.8",
                 "egulias/email-validator": "~3.2",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.1",
@@ -2221,9 +2221,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.4.7"
+                "source": "https://github.com/drupal/core-recommended/tree/9.4.8"
             },
-            "time": "2022-09-28T16:19:47+00:00"
+            "time": "2022-10-06T15:57:08+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -2693,17 +2693,17 @@
         },
         {
             "name": "drupal/s3fs",
-            "version": "3.0.0-beta7",
+            "version": "3.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/s3fs.git",
-                "reference": "8.x-3.0-beta7"
+                "reference": "8.x-3.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-beta7.zip",
-                "reference": "8.x-3.0-beta7",
-                "shasum": "3edd843235e839a1bee4145fb6d2eb109bd22a22"
+                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-rc1.zip",
+                "reference": "8.x-3.0-rc1",
+                "shasum": "bf983d5ab88b19e95fa236783d6d66abc7e61029"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.18",
@@ -2718,11 +2718,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-beta7",
-                    "datestamp": "1664385064",
+                    "version": "8.x-3.0-rc1",
+                    "datestamp": "1665174702",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -4763,16 +4763,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.6.4",
+            "version": "v6.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "a94fdebaea6bd17f51be0c2373ab80d3d681269b"
+                "reference": "8b6386d7417526d1ea4da9edb70b8352f7543627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a94fdebaea6bd17f51be0c2373ab80d3d681269b",
-                "reference": "a94fdebaea6bd17f51be0c2373ab80d3d681269b",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8b6386d7417526d1ea4da9edb70b8352f7543627",
+                "reference": "8b6386d7417526d1ea4da9edb70b8352f7543627",
                 "shasum": ""
             },
             "require": {
@@ -4796,8 +4796,8 @@
                 "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
                 "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
                 "psr/log": "For optional PSR-3 debug logging",
-                "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
-                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
+                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
+                "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
             },
             "type": "library",
             "autoload": {
@@ -4829,7 +4829,7 @@
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "support": {
                 "issues": "https://github.com/PHPMailer/PHPMailer/issues",
-                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.6.4"
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.6.5"
             },
             "funding": [
                 {
@@ -4837,7 +4837,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-22T09:22:00+00:00"
+            "time": "2022-10-07T12:23:10+00:00"
         },
         {
             "name": "psr/cache",
@@ -8295,16 +8295,16 @@
         },
         {
             "name": "sirbrillig/phpcs-variable-analysis",
-            "version": "v2.11.8",
+            "version": "v2.11.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sirbrillig/phpcs-variable-analysis.git",
-                "reference": "aaf902277f2889fddbdb37046ae02b9965e2cf0f"
+                "reference": "62730888d225d55a613854b6a76fb1f9f57d1618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sirbrillig/phpcs-variable-analysis/zipball/aaf902277f2889fddbdb37046ae02b9965e2cf0f",
-                "reference": "aaf902277f2889fddbdb37046ae02b9965e2cf0f",
+                "url": "https://api.github.com/repos/sirbrillig/phpcs-variable-analysis/zipball/62730888d225d55a613854b6a76fb1f9f57d1618",
+                "reference": "62730888d225d55a613854b6a76fb1f9f57d1618",
                 "shasum": ""
             },
             "require": {
@@ -8349,7 +8349,7 @@
                 "source": "https://github.com/sirbrillig/phpcs-variable-analysis",
                 "wiki": "https://github.com/sirbrillig/phpcs-variable-analysis/wiki"
             },
-            "time": "2022-09-08T18:35:53+00:00"
+            "time": "2022-10-05T23:31:46+00:00"
         },
         {
             "name": "slevomat/coding-standard",
