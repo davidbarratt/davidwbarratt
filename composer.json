@@ -16,7 +16,6 @@
     ],
     "require": {
         "composer/installers": "^1.9",
-        "cweagans/composer-patches": "^1.7",
         "d8-contrib-modules/cloudflarephpsdk": "^1.0@alpha",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/cloudflare_worker_purge": "^1.0@rc",
@@ -45,11 +44,6 @@
         "sort-packages": true
     },
     "extra": {
-        "patches": {
-            "drupal/schema_metatag": {
-              "Add @id as a tag to all schemas": "https://www.drupal.org/files/issues/2019-09-01/3078582-03.patch"
-            }
-        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
