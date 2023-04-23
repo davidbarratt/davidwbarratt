@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "027195857bdd1a9f6c1dfc75c7fc7a43",
+    "content-hash": "818159a37b2d08b4fd3e883f86bfdd31",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1131,69 +1131,6 @@
                 "source": "https://github.com/consolidation/site-process/tree/4.2.1"
             },
             "time": "2022-10-18T13:19:35+00:00"
-        },
-        {
-            "name": "d8-contrib-modules/cloudflarephpsdk",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/d8-contrib-modules/cloudflarephpsdk.git",
-                "reference": "fa0c5c74b9d73fc3afa4ddbbd76a67cef5e688f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/d8-contrib-modules/cloudflarephpsdk/zipball/fa0c5c74b9d73fc3afa4ddbbd76a67cef5e688f0",
-                "reference": "fa0c5c74b9d73fc3afa4ddbbd76a67cef5e688f0",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.1|^7.0",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "drupal/coder": "8.2.*",
-                "pdepend/pdepend": "1.1.*",
-                "phing/phing": "2.11.*",
-                "phploc/phploc": "2.0.*@dev",
-                "phpmd/phpmd": "1.*",
-                "phpunit/phpunit": "~4.8",
-                "sebastian/phpcpd": "2.0.*@dev",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CloudFlarePhpSdk\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Weingarten",
-                    "email": "aweingarten@users.noreply.github.com",
-                    "homepage": "https://github.com/aweingarten"
-                }
-            ],
-            "description": "PHP client for interacting with CloudFlare's SDK. CloudFlare is a copyright of CloudFlare, Inc.  The authors of this tool has no association with CloudFlare, Inc.",
-            "homepage": "https://github.com/d8-contrib-modules/cloudflarephpsdk",
-            "keywords": [
-                "Cloud Flare",
-                "client",
-                "cloudflare",
-                "curl",
-                "framework",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "support": {
-                "issues": "https://github.com/d8-contrib-modules/cloudflarephpsdk/issues",
-                "source": "https://github.com/d8-contrib-modules/cloudflarephpsdk/tree/1.0.0"
-            },
-            "time": "2022-12-07T17:12:07+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -8567,7 +8504,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "d8-contrib-modules/cloudflarephpsdk": 15,
         "drupal/cloudflare": 10,
         "drupal/cloudflare_worker_purge": 5,
         "drupal/name": 5,

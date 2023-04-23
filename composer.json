@@ -16,7 +16,6 @@
     ],
     "require": {
         "composer/installers": "^1.9",
-        "d8-contrib-modules/cloudflarephpsdk": "^1.0@alpha",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/cloudflare_worker_purge": "^1.0@rc",
         "drupal/codesnippet": "^1.7",
