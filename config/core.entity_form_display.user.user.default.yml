@@ -30,13 +30,16 @@ content:
   field_image:
     type: media_library_widget
     weight: 2
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_name:
+    type: name_default
     weight: 0
+    region: content
     settings:
+      override_field_settings: false
       labels:
         title: Title
         given: Given
@@ -44,6 +47,9 @@ content:
         family: Family
         generational: Generational
         credentials: Credentials
+      widget_layout: stacked
+      show_component_required_marker: false
+      credentials_inline: false
       size:
         title: 6
         given: 20
@@ -58,28 +64,22 @@ content:
         family: description
         generational: description
         credentials: description
-      widget_layout: stacked
-      show_component_required_marker: false
-      credentials_inline: false
-      override_field_settings: false
     third_party_settings: {  }
-    type: name_default
-    region: content
   field_picture:
     type: media_library_widget
     weight: 1
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
   field_social:
+    type: link_default
     weight: 3
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   language:
     weight: 5
     region: content

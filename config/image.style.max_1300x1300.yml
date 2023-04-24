@@ -1,17 +1,12 @@
-uuid: 8a091c10-19eb-48d2-a8ff-6feb8eb0f00e
+uuid: f8fdb4dc-0e92-47bb-9e70-1e983fbbe563
 langcode: en
 status: true
-dependencies:
-  enforced:
-    module:
-      - responsive_image
-_core:
-  default_config_hash: xW1ApqbWjK7oCBCl8jVHA42u2MekQDq4gry3xfZzdWY
+dependencies: {  }
 name: max_1300x1300
 label: 'Max 1300x1300'
 effects:
-  04caae9a-fa3e-4ea6-ae09-9c26aec7d308:
-    uuid: 04caae9a-fa3e-4ea6-ae09-9c26aec7d308
+  545149dc-059c-48f9-9663-281ea4e16473:
+    uuid: 545149dc-059c-48f9-9663-281ea4e16473
     id: image_scale
     weight: 1
     data:

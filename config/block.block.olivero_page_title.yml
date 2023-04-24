@@ -1,4 +1,4 @@
-uuid: 0d1233b0-d054-4518-9831-8cf4bed28649
+uuid: a9a0ea96-edcc-4d97-8f98-b879cf504c81
 langcode: en
 status: true
 dependencies:
@@ -17,10 +17,10 @@ plugin: page_title_block
 settings:
   id: page_title_block
   label: 'Page title'
-  provider: core
   label_display: '0'
+  provider: core
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
     negate: true
+    pages: "<front>\r\n/user/*"

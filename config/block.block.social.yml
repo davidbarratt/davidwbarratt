@@ -1,4 +1,4 @@
-uuid: e1c9fc92-0746-41c7-87d8-8c9c592440e4
+uuid: 5e3395ca-003e-4f95-8524-ac512dada8b3
 langcode: en
 status: false
 dependencies:
@@ -10,15 +10,15 @@ dependencies:
     - olivero
 id: social
 theme: olivero
-region: footer_top
+region: social
 weight: -7
 provider: null
 plugin: 'system_menu_block:social'
 settings:
   id: 'system_menu_block:social'
   label: Social
-  provider: system
   label_display: '0'
+  provider: system
   level: 1
   depth: 0
   expand_all_items: false

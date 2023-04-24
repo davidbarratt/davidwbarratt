@@ -1,4 +1,4 @@
-uuid: b9eaff66-f879-4c15-95cb-531c14e586ea
+uuid: b70c0566-04c4-497f-80fe-a385a1b5f01a
 langcode: en
 status: false
 dependencies:
@@ -7,17 +7,17 @@ dependencies:
   theme:
     - olivero
 _core:
-  default_config_hash: oxx42senoNVyvKqVWyrphaynw-aZ1ijr1OmHNM3UVW4
+  default_config_hash: jGkBUnwRXYacHWTR8hjjwn_a_PRM-Xj_xSHoB0WIfEo
 id: olivero_syndicate
 theme: olivero
 region: social
-weight: -7
+weight: -6
 provider: null
 plugin: node_syndicate_block
 settings:
   id: node_syndicate_block
   label: 'RSS feed'
-  provider: node
   label_display: '0'
+  provider: node
   block_count: 10
 visibility: {  }

@@ -1,8 +1,15 @@
 purgers:
   -
-    order_index: 2
     instance_id: 5c0c7e9953
     plugin_id: cloudflare_worker
+    order_index: 2
+processors:
+  -
+    plugin_id: lateruntime
+    status: true
+  -
+    plugin_id: purge_ui_block_processor
+    status: false
 queuers:
   -
     plugin_id: coretags
@@ -15,12 +22,5 @@ queuers:
     status: false
   -
     plugin_id: drush_purge_queue_add
-    status: false
-processors:
-  -
-    plugin_id: lateruntime
-    status: true
-  -
-    plugin_id: purge_ui_block_processor
     status: false
 queue: database

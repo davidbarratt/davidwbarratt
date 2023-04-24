@@ -1,0 +1,37 @@
+uuid: 94254100-878e-442a-a2d9-bc8f2bce0267
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.max_1000x1000
+    - image.style.max_1300x1300
+    - image.style.max_1570x1570
+    - image.style.max_500x500
+    - image.style.max_700x700
+  theme:
+    - olivero
+id: article
+label: Article
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: max_1570x1570
+    breakpoint_id: olivero.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: max_1300x1300
+    breakpoint_id: olivero.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: max_1000x1000
+    breakpoint_id: olivero.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: max_700x700
+    breakpoint_id: olivero.sm
+    multiplier: 1x
+breakpoint_group: olivero
+fallback_image_style: max_500x500

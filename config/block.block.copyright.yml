@@ -1,4 +1,4 @@
-uuid: b6b94eea-5631-4b4c-942f-657a50355da5
+uuid: 48b03b3b-6cc7-4a34-a36f-fda798a8e047
 langcode: en
 status: true
 dependencies:
@@ -7,18 +7,18 @@ dependencies:
   module:
     - block_content
   theme:
-    - bartik
+    - olivero
 id: copyright
-theme: bartik
-region: footer_fifth
-weight: -3
+theme: olivero
+region: footer_bottom
+weight: 0
 provider: null
 plugin: 'block_content:e0696b91-399d-4258-a6d2-c32cc84c4363'
 settings:
   id: 'block_content:e0696b91-399d-4258-a6d2-c32cc84c4363'
   label: Copyright
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

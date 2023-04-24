@@ -15,6 +15,10 @@ settings:
     rows:
       -
         -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
           name: Formatting
           items:
             - Bold
@@ -35,21 +39,15 @@ settings:
             - Blockquote
             - DrupalImage
         -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
           name: Tools
           items:
             - Source
-  plugins:
-    stylescombo:
-      styles: ''
+  plugins: {  }
 image_upload:
   status: true
-  scheme: public
+  scheme: s3
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

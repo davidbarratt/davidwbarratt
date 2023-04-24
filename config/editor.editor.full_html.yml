@@ -15,6 +15,10 @@ settings:
     rows:
       -
         -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
           name: Formatting
           items:
             - Bold
@@ -22,6 +26,7 @@ settings:
             - Strike
             - Superscript
             - Subscript
+            - Code
             - '-'
             - RemoveFormat
         -
@@ -37,27 +42,50 @@ settings:
         -
           name: Media
           items:
+            - CodeSnippet
             - Blockquote
             - DrupalImage
             - Table
             - HorizontalRule
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
         -
           name: Tools
           items:
             - ShowBlocks
             - Source
   plugins:
-    stylescombo:
-      styles: ''
+    codesnippet:
+      highlight_style: vs
+      highlight_languages:
+        apache: apache
+        bash: bash
+        cs: cs
+        cpp: cpp
+        coffeescript: coffeescript
+        css: css
+        diff: diff
+        html: html
+        http: http
+        ini: ini
+        java: java
+        javascript: javascript
+        json: json
+        makefile: makefile
+        markdown: markdown
+        nginx: nginx
+        objectivec: objectivec
+        perl: perl
+        php: php
+        python: python
+        ruby: ruby
+        sql: sql
+        vbscript: vbscript
+        xhtml: xhtml
+        xml: xml
 image_upload:
   status: true
-  scheme: public
+  scheme: s3
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

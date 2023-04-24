@@ -1,0 +1,15 @@
+uuid: 1b74c467-8af4-4733-867b-4977f065575b
+langcode: en
+status: true
+dependencies: {  }
+name: max_1570x1570
+label: 'Max 1570x1570'
+effects:
+  515b8c76-040f-497b-a581-c2cf52b79b78:
+    uuid: 515b8c76-040f-497b-a581-c2cf52b79b78
+    id: image_scale
+    weight: 1
+    data:
+      width: 1570
+      height: 1570
+      upscale: false

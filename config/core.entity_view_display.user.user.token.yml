@@ -21,17 +21,15 @@ mode: token
 content:
   field_image:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: ''
       image_link: ''
+      image_style: ''
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_social:
     type: link
-    weight: 1
-    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -40,6 +38,8 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_name: true
   field_picture: true
