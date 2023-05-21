@@ -93,6 +93,9 @@ $databases['default']['default'] = [
   'prefix' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\sqlite',
   'driver' => 'sqlite',
+  'init_commands' => [
+    'wal' => 'PRAGMA journal_mode=DELETE',
+  ],
 ];
 
 /**
