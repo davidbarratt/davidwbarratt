@@ -118,16 +118,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.273.0",
+            "version": "3.273.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "86078abfba43fce3f71a2714bb10a6b1baec1b78"
+                "reference": "dbb8640e651351b47f50548c26abbe316d36632b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/86078abfba43fce3f71a2714bb10a6b1baec1b78",
-                "reference": "86078abfba43fce3f71a2714bb10a6b1baec1b78",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dbb8640e651351b47f50548c26abbe316d36632b",
+                "reference": "dbb8640e651351b47f50548c26abbe316d36632b",
                 "shasum": ""
             },
             "require": {
@@ -207,9 +207,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.273.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.273.5"
             },
-            "time": "2023-06-13T18:22:02+00:00"
+            "time": "2023-06-21T18:22:15+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1492,26 +1492,29 @@
         },
         {
             "name": "drupal/ckeditor",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor.git",
-                "reference": "1.0.1"
+                "reference": "1.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor-1.0.1.zip",
-                "reference": "1.0.1",
-                "shasum": "d3dd8bfb2301b749599ba48cf76208becdf0eeb3"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "fec2ca9ad852a00c7b9584cb6040dc860364c481"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10"
             },
+            "require-dev": {
+                "drupal/classy": "*"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.1",
-                    "datestamp": "1662977541",
+                    "version": "1.0.2",
+                    "datestamp": "1687261951",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8213,16 +8216,16 @@
         },
         {
             "name": "drupal/coder",
-            "version": "8.3.19",
+            "version": "8.3.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfrenssen/coder.git",
-                "reference": "9a152b41efb39b66dd452da5e94e3b852a13b027"
+                "reference": "88055e40931a56074b6510a631d3403794c91625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/9a152b41efb39b66dd452da5e94e3b852a13b027",
-                "reference": "9a152b41efb39b66dd452da5e94e3b852a13b027",
+                "url": "https://api.github.com/repos/pfrenssen/coder/zipball/88055e40931a56074b6510a631d3403794c91625",
+                "reference": "88055e40931a56074b6510a631d3403794c91625",
                 "shasum": ""
             },
             "require": {
@@ -8236,7 +8239,7 @@
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.7.12",
-                "phpunit/phpunit": "^7.0 || ^8.0"
+                "phpunit/phpunit": "^8.0"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -8260,7 +8263,7 @@
                 "issues": "https://www.drupal.org/project/issues/coder",
                 "source": "https://www.drupal.org/project/coder"
             },
-            "time": "2023-05-06T10:16:21+00:00"
+            "time": "2023-06-15T07:16:09+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
