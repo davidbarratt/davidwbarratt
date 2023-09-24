@@ -1,6 +1,8 @@
-FROM drupal:9-apache
+FROM drupal:9-php8.1-apache AS base
 
 LABEL org.opencontainers.image.source https://github.com/davidbarratt/davidwbarratt
+
+FROM base as dev
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
@@ -11,8 +13,8 @@ RUN apt-get update && apt-get install -y \
 
 # Extensions
 RUN pecl install \
-		APCu-5.1.22 \
-		uploadprogress-1.1.4 \
+		apcu \
+		uploadprogress \
 	&& docker-php-ext-enable \
 		apcu \
 		uploadprogress
@@ -25,6 +27,8 @@ RUN { \
 
 # Enable Apache modules
 RUN a2enmod env headers
+
+FROM dev as server
 
 COPY ./ /opt/drupal
 

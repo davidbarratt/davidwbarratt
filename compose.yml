@@ -1,0 +1,72 @@
+x-default: &default
+  SMTP_HOST: 'smtp'
+  SMTP_PORT: '1025'
+  SMTP_PROTOCOL: 'standard'
+  SMTP_USERNAME: ''
+  SMTP_PASSWORD: ''
+  APP_DEBUG: '1'
+
+services:
+  base:
+    build:
+      context: ./
+      target: dev
+    command: 'true'
+  composer:
+    extends: base
+    environment:
+      <<: *default
+    env_file:
+      - .env
+    entrypoint: 'composer'
+    command: 'install'
+    volumes:
+      - ./:/opt/drupal
+  drush:
+    extends: base
+    entrypoint: 'drush'
+    command: 'version'
+    environment:
+      <<: *default
+    env_file:
+      - .env
+    volumes:
+      - ./:/opt/drupal
+  drupal:
+    extends: base
+    restart: unless-stopped
+    depends_on:
+      composer:
+        condition: service_completed_successfully
+      database:
+        condition: service_healthy
+    environment:
+      <<: *default
+    env_file:
+      - .env
+    command: 'apache2-foreground'
+    volumes:
+      - ./:/opt/drupal
+    ports:
+      - 8888:80
+  database:
+    image: mysql
+    healthcheck:
+      test: mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      interval: 5s
+      timeout: 5s
+      retries: 55
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: 'davidwbarratt'
+      MYSQL_USER: 'david'
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+  smtp:
+    image: sj26/mailcatcher
+    ports:
+      - 1080:1080
+volumes:
+  db-data:
