@@ -89,13 +89,12 @@
  * @endcode
  */
 $databases['default']['default'] = [
-  'database' => 'sites/default/files/.ht.sqlite',
-  'prefix' => '',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\sqlite',
-  'driver' => 'sqlite',
-  'init_commands' => [
-    'wal' => 'PRAGMA journal_mode=DELETE',
-  ],
+    'database' => getenv('MYSQL_DATABASE') ?: 'davidwbarratt',
+    'username' => getenv('MYSQL_USER') ?: 'david',
+    'password' => getenv('MYSQL_PASSWORD') ?: null,
+    'host' => getenv('MYSQL_HOST') ?: 'database',
+    'port' => getenv('MYSQL_PORT') ?: '3306',
+    'driver' => 'mysql',
 ];
 
 /**

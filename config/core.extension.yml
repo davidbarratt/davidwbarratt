@@ -52,7 +52,7 @@ module:
   smtp: 0
   sophron: 0
   sophron_guesser: 0
-  sqlite: 0
+  mysql: 0
   system: 0
   taxonomy: 0
   text: 0

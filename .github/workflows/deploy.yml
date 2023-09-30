@@ -5,24 +5,31 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker build --tag ghcr.io/${GITHUB_REPOSITORY} .
-      - run: docker push ghcr.io/${GITHUB_REPOSITORY}
-      # - uses: azure/setup-kubectl@v1
-      #   with:
-      #     version: 'v1.19.7'
-      # - uses: azure/k8s-set-context@v1
-      #   with:
-      #     method: service-account
-      #     k8s-url: ${{ secrets.K8S_URL }}
-      #     k8s-secret: ${{ secrets.K8S_SECRET }}
-      # - run: kubectl set image statefulset/davidwbarratt web=$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/${GITHUB_REPOSITORY})
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v5
+        id: build
+        with:
+          push: true
+          tags: ghcr.io/${GITHUB_REPOSITORY}
+      - uses: azure/container-apps-deploy-action@v1
+        with:
+          containerAppName: 'davidwbarratt'
+          imageToDeploy: ghcr.io/${GITHUB_REPOSITORY}@${{ steps.build.outputs.digest}}
