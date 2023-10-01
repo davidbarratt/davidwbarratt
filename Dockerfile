@@ -26,7 +26,7 @@ RUN { \
 	} > /usr/local/etc/php/conf.d/upload-filesize.ini
 
 # Enable Apache modules
-RUN a2enmod env headers
+# RUN a2enmod env headers
 
 FROM dev as server
 
