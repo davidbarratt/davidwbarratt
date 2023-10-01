@@ -1,6 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
 
 // @codingStandardsIgnoreFile
 
@@ -96,18 +97,22 @@ $password = getenv('MYSQL_PASSWORD');
 // If the password was not provided, but an identity endpiont is present, fetch the access token.
 if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $client = new Client();
-  $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
-    'query' => [
-      'api-version' => '2019-08-01',
-      'resource' => 'https://ossrdbms-aad.database.windows.net',
-    ],
-    'headers'  => [
-      'X-IDENTITY-HEADER' => getenv('IDENTITY_HEADER'),
-    ],
-  ]);
-
-  $data = json_decode($response->getBody());
-  $password = $data->access_token;
+  try {
+    $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
+      'query' => [
+        'api-version' => '2019-08-01',
+        'resource' => 'https://ossrdbms-aad.database.windows.net',
+      ],
+      'headers'  => [
+        'X-IDENTITY-HEADER' => getenv('IDENTITY_HEADER'),
+      ],
+    ]);
+    $data = json_decode($response->getBody());
+    $password = $data->access_token;
+  } catch (BadResponseException $e) {
+    fwrite(STDOUT, $e->getResponse()->getBody());
+    throw new Error('[Settings] Failed to fetch database password', 0, $e);
+  }
 }
 
 $databases['default']['default'] = [
