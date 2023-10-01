@@ -1,4 +1,4 @@
-FROM drupal:9-php8.1-apache AS base
+FROM drupal:9-php8.1-apache-bullseye AS base
 
 LABEL org.opencontainers.image.source https://github.com/davidbarratt/davidwbarratt
 
