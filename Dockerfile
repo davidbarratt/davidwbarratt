@@ -23,6 +23,11 @@ RUN { \
 		echo 'post_max_size = 32M'; \
 	} > /usr/local/etc/php/conf.d/upload-filesize.ini
 
+# Disable OPcache
+RUN { \
+		echo 'opcache.enable=0'; \
+	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+
 FROM dev as server
 
 COPY ./ /opt/drupal
