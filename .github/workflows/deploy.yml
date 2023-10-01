@@ -39,4 +39,5 @@ jobs:
       - uses: azure/container-apps-deploy-action@v1
         with:
           containerAppName: 'davidwbarratt'
+          resourceGroup: 'davidwarratt'
           imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
