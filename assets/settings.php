@@ -99,7 +99,7 @@ if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
     'query' => [
       'api-version' => '2019-08-01',
-      'resource' => 'http://ossrdbms-aad.database.windows.net',
+      'resource' => 'https://ossrdbms-aad.database.windows.net',
     ],
     'headers'  => [
       'X-IDENTITY-HEADER' => getenv('IDENTITY_HEADER'),
