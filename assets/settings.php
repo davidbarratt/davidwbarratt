@@ -117,6 +117,9 @@ $databases['default']['default'] = [
     'host' => getenv('MYSQL_HOST') ?: 'database',
     'port' => getenv('MYSQL_PORT') ?: '3306',
     'driver' => 'mysql',
+    'pdo' => [
+      \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt'
+    ],
 ];
 
 /**
