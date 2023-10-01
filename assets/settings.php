@@ -91,7 +91,7 @@
 $databases['default']['default'] = [
     'database' => getenv('MYSQL_DATABASE') ?: 'davidwbarratt',
     'username' => getenv('MYSQL_USER') ?: 'david',
-    'password' => getenv('MYSQL_PASSWORD') ?: null,
+    'password' => getenv('MYSQL_PASSWORD') ?: '',
     'host' => getenv('MYSQL_HOST') ?: 'database',
     'port' => getenv('MYSQL_PORT') ?: '3306',
     'driver' => 'mysql',
