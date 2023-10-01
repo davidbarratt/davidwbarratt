@@ -110,7 +110,8 @@ if (!$password && getenv('IDENTITY_ENDPOINT')) {
     $data = json_decode($response->getBody());
     $password = $data->access_token;
   } catch (BadResponseException $e) {
-    fwrite(STDOUT, $e->getResponse()->getBody() . "\n");
+    $stdout = fopen('php://stdout', 'w');
+    fwrite($stdout, $e->getResponse()->getBody() . "\n");
     throw new Error('[Settings] Failed to fetch database password', 0, $e);
   }
 }
