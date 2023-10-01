@@ -12,12 +12,12 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Extensions
-RUN pecl install \
-		apcu \
-		uploadprogress \
-	&& docker-php-ext-enable \
-		apcu \
-		uploadprogress
+# RUN pecl install \
+# 		apcu \
+# 		uploadprogress \
+# 	&& docker-php-ext-enable \
+# 		apcu \
+# 		uploadprogress
 
 # Set the max upload size.
 RUN { \
