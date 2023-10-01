@@ -28,8 +28,8 @@ jobs:
         id: build
         with:
           push: true
-          tags: ghcr.io/${GITHUB_REPOSITORY}
+          tags: ghcr.io/${{ github.repository }}
       - uses: azure/container-apps-deploy-action@v1
         with:
           containerAppName: 'davidwbarratt'
-          imageToDeploy: ghcr.io/${GITHUB_REPOSITORY}@${{ steps.build.outputs.digest}}
+          imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
