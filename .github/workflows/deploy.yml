@@ -40,4 +40,5 @@ jobs:
         with:
           containerAppName: 'davidwbarratt'
           resourceGroup: 'davidwarratt'
+          containerAppEnvironment: 'davidwbarratt'
           imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
