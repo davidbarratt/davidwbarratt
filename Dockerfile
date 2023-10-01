@@ -12,21 +12,16 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Extensions
-# RUN pecl install \
-# 		apcu \
-# 		uploadprogress \
-# 	&& docker-php-ext-enable \
-# 		apcu \
-# 		uploadprogress
+RUN pecl install \
+		uploadprogress \
+	&& docker-php-ext-enable \
+		uploadprogress
 
 # Set the max upload size.
 RUN { \
 		echo 'upload_max_filesize = 32M'; \
 		echo 'post_max_size = 32M'; \
 	} > /usr/local/etc/php/conf.d/upload-filesize.ini
-
-# Enable Apache modules
-# RUN a2enmod env headers
 
 FROM dev as server
 
