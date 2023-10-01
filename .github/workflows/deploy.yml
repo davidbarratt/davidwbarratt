@@ -5,13 +5,15 @@ on:
     branches:
       - master
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
+
     steps:
       - uses: azure/login@v1
         with:
@@ -32,9 +34,9 @@ jobs:
         id: build
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/${{ github.repository }}
           labels: ${{ steps.meta.outputs.labels }}
       - uses: azure/container-apps-deploy-action@v1
         with:
           containerAppName: 'davidwbarratt'
-          imageToDeploy: ${{ steps.meta.outputs.tags }}@${{ steps.build.outputs.digest}}
+          imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
