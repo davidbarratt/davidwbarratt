@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 // @codingStandardsIgnoreFile
 
 /**
@@ -88,10 +90,30 @@
  * ];
  * @endcode
  */
+
+$password = getenv('MYSQL_PASSWORD');
+
+// If the password was not provided, but an identity endpiont is present, fetch the access token.
+if (!$password && getenv('IDENTITY_ENDPOINT')) {
+  $client = new Client();
+  $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
+    'query' => [
+      'api-version' => '2019-08-01',
+      'resource' => 'http://ossrdbms-aad.database.windows.net',
+    ],
+    'headers'  => [
+      'X-IDENTITY-HEADER' => getenv('IDENTITY_HEADER'),
+    ],
+  ]);
+
+  $data = json_decode($response->getBody());
+  $password = $data->access_token;
+}
+
 $databases['default']['default'] = [
     'database' => getenv('MYSQL_DATABASE') ?: 'davidwbarratt',
     'username' => getenv('MYSQL_USER') ?: 'david',
-    'password' => getenv('MYSQL_PASSWORD') ?: null,
+    'password' => $password,
     'host' => getenv('MYSQL_HOST') ?: 'database',
     'port' => getenv('MYSQL_PORT') ?: '3306',
     'driver' => 'mysql',
