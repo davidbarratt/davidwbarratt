@@ -24,12 +24,17 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/${{ github.repository }}
       - uses: docker/build-push-action@v5
         id: build
         with:
           push: true
-          tags: ghcr.io/${{ github.repository }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
       - uses: azure/container-apps-deploy-action@v1
         with:
           containerAppName: 'davidwbarratt'
-          imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
+          imageToDeploy: ${{ steps.meta.outputs.tags }}@${{ steps.build.outputs.digest}}
