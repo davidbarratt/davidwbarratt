@@ -111,7 +111,7 @@ if (!$password && getenv('IDENTITY_ENDPOINT')) {
       ],
     ]);
     $data = json_decode($response->getBody());
-    $item->expiresAt(\DateTime::createFromFormat($data->expires_on, 'U'));
+    $item->expiresAt(\DateTime::createFromFormat('U', $data->expires_on));
     return $data->access_token;
   });
 }
