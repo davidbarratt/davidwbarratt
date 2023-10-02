@@ -23,6 +23,7 @@
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/health_check": "^3.0",
         "drupal/http_cache_control": "^2.0",
         "drupal/imagemagick": "^3.1",
         "drupal/log_stdout": "^1.3",
