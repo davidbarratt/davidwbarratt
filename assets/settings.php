@@ -2,6 +2,8 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use Symfony\Component\Cache\Adapter\ApcuAdapter;
+use Symfony\Contracts\Cache\ItemInterface;
 
 // @codingStandardsIgnoreFile
 
@@ -96,8 +98,9 @@ $password = getenv('MYSQL_PASSWORD');
 
 // If the password was not provided, but an identity endpiont is present, fetch the access token.
 if (!$password && getenv('IDENTITY_ENDPOINT')) {
-  $client = new Client();
-  try {
+  $cache = new ApcuAdapter('settings');
+  $password = $cache->get('database:password', function (ItemInterface $item): string {
+    $client = new Client();
     $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
       'query' => [
         'api-version' => '2019-08-01',
@@ -108,12 +111,9 @@ if (!$password && getenv('IDENTITY_ENDPOINT')) {
       ],
     ]);
     $data = json_decode($response->getBody());
-    $password = $data->access_token;
-  } catch (BadResponseException $e) {
-    $stdout = fopen('php://stdout', 'w');
-    fwrite($stdout, $e->getResponse()->getBody() . "\n");
-    throw new Error('[Settings] Failed to fetch database password', 0, $e);
-  }
+    $item->expiresAt(\DateTime::createFromFormat($data->expires_on, 'U'));
+    return $data->access_token;
+  });
 }
 
 $databases['default']['default'] = [
