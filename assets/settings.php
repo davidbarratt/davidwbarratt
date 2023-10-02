@@ -99,7 +99,7 @@ $password = getenv('MYSQL_PASSWORD');
 // If the password was not provided, but an identity endpiont is present, fetch the access token.
 if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $cache = new ApcuAdapter('settings');
-  $password = $cache->get('mysql_password', function (ItemInterface $item): string {
+  $password = $cache->get('database.password', function (ItemInterface $item): string {
     $client = new Client();
     $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
       'query' => [
