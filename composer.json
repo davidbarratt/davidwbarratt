@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/azure_mailer": "^1.0",
         "drupal/cloudflare": "^1.0@beta",
         "drupal/cloudflare_worker_purge": "^1.0@rc",
         "drupal/codesnippet": "^1.7",
@@ -39,7 +40,7 @@
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,

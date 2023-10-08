@@ -694,6 +694,9 @@ $config['cloudflare.settings']['apikey'] = getenv('CF_API_KEY') ?: '';
 $config['cloudflare.settings']['email'] = getenv('CF_EMAIL') ?: '';
 $config['cloudflare.settings']['zone_id'] = getenv('CF_ZONE_ID') ?: '';
 
+$config['azure_mailer.settings']['secret'] = getenv('AZURE_MAILER_SECRET') ?: '';
+$config['azure_mailer.settings']['endpoint'] = getenv('AZURE_MAILER_ENDPOINT') ?: '';
+
 /**
  * Fast 404 pages:
  *
