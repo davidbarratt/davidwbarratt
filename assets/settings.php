@@ -1,7 +1,8 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\HandlerStack;
+use GuzzleRetry\GuzzleRetryMiddleware;
 use Symfony\Component\Cache\Adapter\ApcuAdapter;
 use Symfony\Contracts\Cache\ItemInterface;
 
@@ -100,7 +101,9 @@ $password = getenv('MYSQL_PASSWORD');
 if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $cache = new ApcuAdapter('settings');
   $password = $cache->get('database.password', function (ItemInterface $item): string {
-    $client = new Client();
+    $stack = HandlerStack::create();
+    $stack->push(GuzzleRetryMiddleware::factory());
+    $client = new Client(['handler' => $stack]);
     $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
       'query' => [
         'api-version' => '2019-08-01',
