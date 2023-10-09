@@ -102,7 +102,10 @@ if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $cache = new ApcuAdapter('settings');
   $password = $cache->get('database.password', function (ItemInterface $item): string {
     $stack = HandlerStack::create();
-    $stack->push(GuzzleRetryMiddleware::factory());
+    $stack->push(GuzzleRetryMiddleware::factory([
+      // Retry when the connection was refused.
+      'retry_on_timeout' => true,
+    ]));
     $client = new Client(['handler' => $stack]);
     $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
       'query' => [
