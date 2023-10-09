@@ -97,6 +97,10 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 $password = getenv('MYSQL_PASSWORD');
 
+$out = fopen('php://output', 'w');
+fputs($out, 'IDENTITY_ENDPOINT: ' . getenv('IDENTITY_ENDPOINT') . "\n");
+fclose($out);
+
 // If the password was not provided, but an identity endpiont is present, fetch the access token.
 if (!$password && getenv('IDENTITY_ENDPOINT')) {
   $cache = new ApcuAdapter('settings');
