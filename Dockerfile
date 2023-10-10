@@ -2,6 +2,8 @@ FROM drupal:9-php8.1-apache-buster AS base
 
 LABEL org.opencontainers.image.source https://github.com/davidbarratt/davidwbarratt
 
+ENV COMPOSER_ALLOW_SUPERUSER="1"
+
 FROM base as dev
 
 # Dependencies

@@ -37,9 +37,5 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}
           labels: ${{ steps.meta.outputs.labels }}
-      - uses: azure/container-apps-deploy-action@v1
-        with:
-          containerAppName: 'davidwbarratt'
-          resourceGroup: 'davidwbarratt'
-          containerAppEnvironment: 'davidwbarratt'
-          imageToDeploy: ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
+      - run: az containerapp update -g davidwbarratt -n davidwbarratt --image ${{ github.repository }}@${{ steps.build.outputs.digest}}
+      - run: az containerapp jobs start -g davidwbarratt -n davidwbarratt-deploy --image ${{ github.repository }}@${{ steps.build.outputs.digest}}
