@@ -37,5 +37,5 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}
           labels: ${{ steps.meta.outputs.labels }}
-      - run: az containerapp update -g davidwbarratt -n davidwbarratt --image ${{ github.repository }}@${{ steps.build.outputs.digest}}
-      - run: az containerapp jobs start -g davidwbarratt -n davidwbarratt-deploy --image ${{ github.repository }}@${{ steps.build.outputs.digest}}
+      - run: az containerapp update -g davidwbarratt -n davidwbarratt --image ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
+      - run: az containerapp jobs start -g davidwbarratt -n davidwbarratt-deploy --image ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
