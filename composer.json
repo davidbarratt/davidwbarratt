@@ -14,6 +14,9 @@
             "url": "https://packages.drupal.org/8"
         }
     ],
+    "scripts": {
+        "deploy": "drush updatedb --no-cache-clear && drush cache:rebuild"
+    },
     "require": {
         "caseyamcl/guzzle_retry_middleware": "^2.9",
         "composer/installers": "^1.9",
