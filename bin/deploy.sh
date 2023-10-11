@@ -8,7 +8,7 @@ do
   sleep 1;
   STATUS="$(az containerapp job show -g davidwbarratt -n davidwbarratt-deploy -o tsv --query 'properties.provisioningState')";
   echo $STATUS;
-  if [ "$STATUS" = "Failed"]
+  if [ "$STATUS" = "Failed" ]
   then
     exit 1
   fi
@@ -24,7 +24,7 @@ do
   sleep 1;
   STATUS="$(az containerapp show -g davidwbarratt -n davidwbarratt -o tsv --query 'properties.provisioningState')";
   echo $STATUS;
-  if [ "$STATUS" = "Failed"]
+  if [ "$STATUS" = "Failed" ]
   then
     exit 1
   fi
@@ -40,9 +40,9 @@ STATUS="";
 while  [ "$STATUS" != "Succeeded" ]
 do
   sleep 1;
-  STATUS="$(az containerapp job execution show -g davidwbarratt -n davidwbarratt-deploy --job-execution-name $NAME -o tsv --query 'properties.status')";
+  STATUS="$(az containerapp job execution show -g davidwbarratt -n davidwbarratt-deploy --job-execution-name "$NAME" -o tsv --query 'properties.status')";
   echo $STATUS;
-  if [ "$STATUS" = "Failed"]
+  if [ "$STATUS" = "Failed" ]
   then
     exit 1
   fi
