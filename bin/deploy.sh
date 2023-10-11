@@ -1,6 +1,6 @@
 ###########################################
 echo "Update Deploy Job"
-az containerapp job update -g davidwbarratt -n davidwbarratt-deploy --image $1 -o yaml;
+az containerapp job update -g davidwbarratt -n davidwbarratt-deploy --image $1 -o tsv --query 'name';
 
 STATUS="";
 while  [ "$STATUS" != "Succeeded" ]
@@ -16,7 +16,7 @@ done
 
 ###########################################
 echo "Update Container App"
-az containerapp update -g davidwbarratt -n davidwbarratt --image $1 -o yaml;
+az containerapp update -g davidwbarratt -n davidwbarratt --image $1 -o tsv --query 'name';
 
 STATUS="";
 while  [ "$STATUS" != "Succeeded" ]
