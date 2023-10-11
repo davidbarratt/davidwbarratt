@@ -33,7 +33,7 @@ done
 ###########################################
 echo "Run Deployment Job"
 
-NAME=$(az containerapp job execution start -g davidwbarratt -n davidwbarratt-deploy -o tsv --query 'name')
+NAME=$(az containerapp job start -g davidwbarratt -n davidwbarratt-deploy -o tsv --query 'name')
 echo $NAME;
 
 STATUS="";
