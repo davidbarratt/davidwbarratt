@@ -1,10 +1,14 @@
-FROM drupal:9-php8.1-apache-buster AS base
+ARG UPSTREAM="drupal:9-php8.1-apache-buster"
 
-LABEL org.opencontainers.image.source https://github.com/davidbarratt/davidwbarratt
+FROM --platform=$BUILDPLATFORM ${UPSTREAM} AS build
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 
-FROM base as dev
+COPY ./ /opt/drupal
+
+RUN composer --no-dev install
+
+FROM ${UPSTREAM} as dev
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
@@ -32,9 +36,7 @@ RUN a2enmod env headers
 
 FROM dev as server
 
-COPY ./ /opt/drupal
-
-RUN composer --no-dev install
+COPY --from=build /opt/drupal /opt/drupal
 
 RUN mkdir -p /opt/drupal/tmp \
   && mkdir -p /opt/drupal/config \
