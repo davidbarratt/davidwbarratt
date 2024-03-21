@@ -1,11 +1,5 @@
 <?php
 
-use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use GuzzleRetry\GuzzleRetryMiddleware;
-use Symfony\Component\Cache\Adapter\ApcuAdapter;
-use Symfony\Contracts\Cache\ItemInterface;
-
 // @codingStandardsIgnoreFile
 
 /**
@@ -94,44 +88,11 @@ use Symfony\Contracts\Cache\ItemInterface;
  * ];
  * @endcode
  */
-
-$password = getenv('MYSQL_PASSWORD');
-
-// If the password was not provided, but an identity endpiont is present, fetch the access token.
-if (!$password && getenv('IDENTITY_ENDPOINT')) {
-  $cache = new ApcuAdapter('settings');
-  $password = $cache->get('database.password', function (ItemInterface $item): string {
-    $stack = HandlerStack::create();
-    $stack->push(GuzzleRetryMiddleware::factory([
-      // Retry when the connection was refused.
-      'retry_on_timeout' => true,
-    ]));
-    $client = new Client(['handler' => $stack]);
-    $response = $client->get(getenv('IDENTITY_ENDPOINT'), [
-      'query' => [
-        'api-version' => '2019-08-01',
-        'resource' => 'https://ossrdbms-aad.database.windows.net',
-      ],
-      'headers'  => [
-        'X-IDENTITY-HEADER' => getenv('IDENTITY_HEADER'),
-      ],
-    ]);
-    $data = json_decode($response->getBody());
-    $item->expiresAt(\DateTime::createFromFormat('U', $data->expires_on));
-    return $data->access_token;
-  });
-}
-
 $databases['default']['default'] = [
-    'database' => getenv('MYSQL_DATABASE') ?: 'davidwbarratt',
-    'username' => getenv('MYSQL_USER') ?: 'david',
-    'password' => $password,
-    'host' => getenv('MYSQL_HOST') ?: 'database',
-    'port' => getenv('MYSQL_PORT') ?: '3306',
-    'driver' => 'mysql',
-    'pdo' => [
-      \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt'
-    ],
+  'database' => '../data/main.sqlite',
+  'prefix' => '',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\sqlite',
+  'driver' => 'sqlite',
 ];
 
 /**
@@ -326,7 +287,7 @@ $settings['config_sync_directory'] = '../config';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = getenv('HASH_SALT') ?: '';
+$settings['hash_salt'] = getenv('HASH_STALT') ?: '';
 
 /**
  * Deployment identifier.
@@ -699,9 +660,6 @@ foreach ($smtp as $key) {
 $config['cloudflare.settings']['apikey'] = getenv('CF_API_KEY') ?: '';
 $config['cloudflare.settings']['email'] = getenv('CF_EMAIL') ?: '';
 $config['cloudflare.settings']['zone_id'] = getenv('CF_ZONE_ID') ?: '';
-
-$config['azure_mailer.settings']['secret'] = getenv('AZURE_MAILER_SECRET') ?: '';
-$config['azure_mailer.settings']['endpoint'] = getenv('AZURE_MAILER_ENDPOINT') ?: '';
 
 /**
  * Fast 404 pages:

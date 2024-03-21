@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: ghcr.io/${{ github.repository }}
           labels: ${{ steps.meta.outputs.labels }}
-      - run: ./bin/deploy.sh ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
+      # - run: ./bin/deploy.sh ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest}}
