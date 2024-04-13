@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0fd856d766774f636d7e24e79aaeaad",
+    "content-hash": "91f2a9ce7b933308ec06b27315cf83ae",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1563,54 +1563,6 @@
             "time": "2020-08-30T21:58:36+00:00"
         },
         {
-            "name": "drupal/azure_mailer",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/azure_mailer.git",
-                "reference": "1.0.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/azure_mailer-1.0.3.zip",
-                "reference": "1.0.3",
-                "shasum": "0ccd0678dbee988ccb179c5e9fa1ef35f9f8f74e"
-            },
-            "require": {
-                "drupal/core": "8.x || 9.x || 10.x",
-                "drupal/mailsystem": "^4.1.0",
-                "mobomo/guzzle-azure-hmac-auth": "dev-main"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.3",
-                    "datestamp": "1686584070",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Steven Linn (stevenlafl)",
-                    "homepage": "https://www.drupal.org/u/stevenlafl",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Azure Communications Service mailer module for Drupal 8+",
-            "homepage": "https://drupal.org/project/azure_mailer",
-            "support": {
-                "source": "https://git.drupalcode.org/project/azure_mailer",
-                "issues": "https://drupal.org/project/issues/azure_mailer"
-            }
-        },
-        {
             "name": "drupal/ckeditor",
             "version": "1.0.2",
             "source": {
@@ -2487,50 +2439,6 @@
             }
         },
         {
-            "name": "drupal/http_cache_control",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/http_cache_control.git",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/http_cache_control-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "6a6864ab39fc2110cc8705e51f5106aa90362df5"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1666053697",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Waihi",
-                    "homepage": "https://www.drupal.org/user/188162"
-                }
-            ],
-            "description": "Module for controlling HTTP Cache Control response headers.",
-            "homepage": "https://www.drupal.org/project/http_cache_control",
-            "support": {
-                "source": "https://git.drupalcode.org/project/http_cache_control"
-            }
-        },
-        {
             "name": "drupal/imagemagick",
             "version": "3.4.0",
             "source": {
@@ -2672,70 +2580,6 @@
                 "source": "https://git.drupalcode.org/project/log_stdout",
                 "issues": "https://www.drupal.org/project/issues/log_stdout",
                 "irc": "irc://irc.freenode.org/drupal-support"
-            }
-        },
-        {
-            "name": "drupal/mailsystem",
-            "version": "4.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/mailsystem.git",
-                "reference": "8.x-4.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mailsystem-8.x-4.4.zip",
-                "reference": "8.x-4.4",
-                "shasum": "49b2e9efd090cdb4a282c7638b1c76d6723c47b6"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-4.4",
-                    "datestamp": "1657576306",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Berdir",
-                    "homepage": "https://www.drupal.org/user/214652"
-                },
-                {
-                    "name": "Les Lim",
-                    "homepage": "https://www.drupal.org/user/84263"
-                },
-                {
-                    "name": "Manuel Garcia",
-                    "homepage": "https://www.drupal.org/user/213194"
-                },
-                {
-                    "name": "miro_dietiker",
-                    "homepage": "https://www.drupal.org/user/227761"
-                },
-                {
-                    "name": "Nafes",
-                    "homepage": "https://www.drupal.org/user/2489926"
-                },
-                {
-                    "name": "pillarsdotnet",
-                    "homepage": "https://www.drupal.org/user/36148"
-                }
-            ],
-            "description": "Mail System",
-            "homepage": "https://www.drupal.org/project/mailsystem",
-            "support": {
-                "source": "https://git.drupalcode.org/project/mailsystem"
             }
         },
         {
@@ -4619,48 +4463,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.7.6"
             },
             "time": "2022-08-18T16:18:26+00:00"
-        },
-        {
-            "name": "mobomo/guzzle-azure-hmac-auth",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mobomo/guzzle-azure-hmac-auth.git",
-                "reference": "e6cf1eaefd058dc9a2b3c044008d50a8cd2bcaa9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mobomo/guzzle-azure-hmac-auth/zipball/e6cf1eaefd058dc9a2b3c044008d50a8cd2bcaa9",
-                "reference": "e6cf1eaefd058dc9a2b3c044008d50a8cd2bcaa9",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": ">=6.5.x-dev",
-                "guzzlehttp/psr7": ">=1.9.x-dev",
-                "php": ">=5.6.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mobomo\\AzureHmacAuth\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "stevenlafl"
-                }
-            ],
-            "description": "Azure HMAC Authentication",
-            "support": {
-                "issues": "https://github.com/mobomo/guzzle-azure-hmac-auth/issues",
-                "source": "https://github.com/mobomo/guzzle-azure-hmac-auth/tree/main"
-            },
-            "time": "2023-06-06T18:57:46+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -9046,7 +8848,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/cloudflare": 10,
-        "drupal/cloudflare_worker_purge": 5,
         "drupal/name": 5,
         "drupal/s3fs": 15
     },
@@ -9054,5 +8855,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
