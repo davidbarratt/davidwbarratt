@@ -1,14 +1,16 @@
-ARG UPSTREAM="drupal:9-php8.1-apache-buster"
+ARG DRUPAL_VERSION="9"
+ARG PHP_VERSION="8.1"
 
-FROM --platform=$BUILDPLATFORM ${UPSTREAM} AS build
+FROM --platform=$BUILDPLATFORM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-apache-buster" AS build
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 
 COPY ./ /opt/drupal
 
-RUN composer --no-dev install
+RUN --mount=type=cache,target=/root/.composer/cache \
+	composer --no-dev install
 
-FROM ${UPSTREAM} as dev
+FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-apache-buster" as server
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
@@ -30,11 +32,6 @@ RUN { \
 		echo 'upload_max_filesize = 32M'; \
 		echo 'post_max_size = 32M'; \
 	} > /usr/local/etc/php/conf.d/upload-filesize.ini
-
-# Enable Apache modules
-RUN a2enmod env headers
-
-FROM dev as server
 
 COPY --from=build /opt/drupal /opt/drupal
 

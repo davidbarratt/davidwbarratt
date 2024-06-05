@@ -11,3 +11,4 @@ vendor
 /web/profiles/contrib
 /web/sites/*/files
 /web/sites/*/private
+compose.yml
