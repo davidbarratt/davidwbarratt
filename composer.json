@@ -26,7 +26,7 @@
         "drupal/core-project-message": "^10",
         "drupal/core-recommended": "^10",
         "drupal/health_check": "^3.0",
-        "drupal/highlight_php": "^1.0",
+        "drupal/highlight_js": "^1.1",
         "drupal/http_cache_control": "^2.1",
         "drupal/imagemagick": "^3.1",
         "drupal/log_stdout": "^1.3",
