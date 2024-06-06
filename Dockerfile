@@ -1,5 +1,5 @@
-ARG DRUPAL_VERSION="9"
-ARG PHP_VERSION="8.1"
+ARG DRUPAL_VERSION="10"
+ARG PHP_VERSION="8.2"
 
 FROM --platform=$BUILDPLATFORM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-apache-buster" AS build
 
@@ -40,6 +40,8 @@ RUN mkdir -p /opt/drupal/tmp \
   && mkdir -p /opt/drupal/web/sites/default/files
 
 # Set the permissions.
-RUN chown -R www-data:www-data /opt/drupal/web/sites/default/files \
+RUN chmod a-w /opt/drupal/web/sites/default \
+  && chmod a-w /opt/drupal/web/sites/default/services.yml \
+  && chown -R www-data:www-data /opt/drupal/web/sites/default/files \
   && chown -R www-data:www-data /opt/drupal/config \
   && chown -R www-data:www-data /opt/drupal/tmp
