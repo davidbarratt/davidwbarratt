@@ -22,8 +22,6 @@
         "composer/installers": "^1.9",
         "drupal/cloudflare": "^2.0@beta",
         "drupal/cloudflare_worker_purge": "^1.0",
-        "drupal/codesnippet": "^1.7",
-        "drupal/codetag": "^1.2",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
         "drupal/core-recommended": "^10",
