@@ -27,11 +27,12 @@ RUN pecl install \
 		apcu \
 		uploadprogress
 
-# Set the max upload size.
 RUN { \
-		echo 'upload_max_filesize = 32M'; \
-		echo 'post_max_size = 32M'; \
-	} > /usr/local/etc/php/conf.d/upload-filesize.ini
+		  echo 'upload_max_filesize = 32M'; \
+		  echo 'post_max_size = 32M'; \
+      echo 'output_buffering = On'; \
+      echo 'session.cookie_samesite = "Lax"'; \
+    } > /usr/local/etc/php/conf.d/custom.ini
 
 COPY --from=build /opt/drupal /opt/drupal
 
