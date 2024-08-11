@@ -657,9 +657,7 @@ foreach ($smtp as $key) {
   }
 }
 
-$config['cloudflare.settings']['apikey'] = getenv('CF_API_KEY') ?: '';
-$config['cloudflare.settings']['email'] = getenv('CF_EMAIL') ?: '';
-$config['cloudflare.settings']['zone_id'] = getenv('CF_ZONE_ID') ?: '';
+$config['cloudflare.settings']['api_token'] = getenv('CF_API_TOKEN') ?: '';
 
 /**
  * Fast 404 pages:
