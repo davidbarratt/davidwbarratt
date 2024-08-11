@@ -8,5 +8,5 @@ zone_id: {  }
 apikey: ''
 email: ''
 zone_name: ''
-auth_using: key
+auth_using: token
 api_token: ''
