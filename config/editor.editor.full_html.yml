@@ -1,91 +1,109 @@
-uuid: 223e0a2d-a8e7-452a-ac17-c2098efbf714
+uuid: 5c1b0c30-e5c4-4648-b401-5a31e96b0ce6
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.full_html
   module:
-    - ckeditor
-_core:
-  default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
+    - ckeditor5
 format: full_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Strike
-            - Superscript
-            - Subscript
-            - Code
-            - '-'
-            - RemoveFormat
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - CodeSnippet
-            - Blockquote
-            - DrupalImage
-            - Table
-            - HorizontalRule
-        -
-          name: Tools
-          items:
-            - ShowBlocks
-            - Source
+    items:
+      - heading
+      - codeBlock
+      - '|'
+      - bold
+      - italic
+      - strikethrough
+      - superscript
+      - subscript
+      - code
+      - removeFormat
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - codeBlock
+      - blockQuote
+      - drupalInsertImage
+      - insertTable
+      - horizontalLine
+      - '|'
+      - showBlocks
+      - sourceEditing
   plugins:
-    codesnippet:
-      highlight_style: vs
-      highlight_languages:
-        apache: apache
-        bash: bash
-        cs: cs
-        cpp: cpp
-        coffeescript: coffeescript
-        css: css
-        diff: diff
-        html: html
-        http: http
-        ini: ini
-        java: java
-        javascript: javascript
-        json: json
-        makefile: makefile
-        markdown: markdown
-        nginx: nginx
-        objectivec: objectivec
-        perl: perl
-        php: php
-        python: python
-        ruby: ruby
-        sql: sql
-        vbscript: vbscript
-        xhtml: xhtml
-        xml: xml
+    ckeditor5_codeBlock:
+      languages:
+        -
+          label: bash
+          language: bash
+        -
+          label: css
+          language: css
+        -
+          label: diff
+          language: diff
+        -
+          label: html
+          language: html
+        -
+          label: http
+          language: http
+        -
+          label: ini
+          language: ini
+        -
+          label: javascript
+          language: javascript
+        -
+          label: typescript
+          language: typescript
+        -
+          label: json
+          language: json
+        -
+          label: markdown
+          language: markdown
+        -
+          label: nginx
+          language: nginx
+        -
+          label: php
+          language: php
+        -
+          label: rust
+          language: rust
+        -
+          label: sql
+          language: sql
+        -
+          label: xml
+          language: xml
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_imageResize:
+      allow_resize: true
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
 image_upload:
   status: true
   scheme: s3
   directory: inline-images
-  max_size: ''
+  max_size: null
   max_dimensions:
     width: null
     height: null
