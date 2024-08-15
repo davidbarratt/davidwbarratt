@@ -1,0 +1,16 @@
+version: '3'
+
+dotenv:
+  - .env
+
+tasks:
+  dev:rs:
+    internal: true
+    cmd: composer exec drush rs
+
+  drush:
+    cmd: composer exec drush {{.CLI_ARGS}}
+
+  dev:
+    deps:
+      - dev:rs
