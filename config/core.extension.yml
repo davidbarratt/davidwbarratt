@@ -6,7 +6,6 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
-  cloudflare: 0
   cloudflare_worker_purge: 0
   comment: 0
   config: 0
@@ -25,6 +24,7 @@ module:
   highlight_js: 0
   image: 0
   imagemagick: 0
+  key: 0
   layout_discovery: 0
   link: 0
   log_stdout: 0

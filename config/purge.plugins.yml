@@ -1,5 +1,15 @@
 purgers:
   -
-    instance_id: fc1e3fe2df
+    instance_id: 0b7da3a883
     plugin_id: cloudflare_worker
     order_index: 2
+processors:
+  -
+    plugin_id: drush_purge_queue_work
+    status: true
+  -
+    plugin_id: drush_purge_invalidate
+    status: false
+  -
+    plugin_id: purge_ui_block_processor
+    status: true
