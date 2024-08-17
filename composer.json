@@ -20,7 +20,6 @@
     "require": {
         "caseyamcl/guzzle_retry_middleware": "^2.9",
         "composer/installers": "^1.9",
-        "drupal/cloudflare": "^2.0@beta",
         "drupal/cloudflare_worker_purge": "^2.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
