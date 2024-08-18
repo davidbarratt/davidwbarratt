@@ -7,6 +7,12 @@ x-default: &default
   APP_DEBUG: '1'
 
 services:
+  ingress:
+    image: nginx:1.27-alpine
+    ports:
+      - 8888:80
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
   web:
     build: ./
     restart: unless-stopped
@@ -17,8 +23,6 @@ services:
       <<: *default
     env_file:
       - .env
-    ports:
-      - 8888:80
     volumes:
       - data:/opt/drupal/data
       - files:/opt/drupal/web/sites/default/files

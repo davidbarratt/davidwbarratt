@@ -1,7 +1,7 @@
 ARG DRUPAL_VERSION="10"
 ARG PHP_VERSION="8.2"
 
-FROM --platform=$BUILDPLATFORM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-apache-buster" AS build
+FROM --platform=$BUILDPLATFORM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" AS build
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 
@@ -10,14 +10,17 @@ COPY ./ /opt/drupal
 RUN --mount=type=cache,target=/root/.composer/cache \
 	composer --no-dev install
 
-FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-apache-buster" as server
+FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" as server
 
 # Dependencies
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
+    gcc \
+    g++ \
+    make \
 		git \
 		unzip \
     imagemagick \
-	--no-install-recommends && rm -r /var/lib/apt/lists/*
+    autoconf
 
 # Extensions
 RUN pecl install \
@@ -27,12 +30,15 @@ RUN pecl install \
 		apcu \
 		uploadprogress
 
+# Use the default production configuration
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 RUN { \
 		  echo 'upload_max_filesize = 32M'; \
 		  echo 'post_max_size = 32M'; \
       echo 'output_buffering = On'; \
       echo 'session.cookie_samesite = "Lax"'; \
-    } > /usr/local/etc/php/conf.d/custom.ini
+    } > "$PHP_INI_DIR/conf.d/custom.ini"
 
 COPY --from=build /opt/drupal /opt/drupal
 
