@@ -27,6 +27,8 @@ jobs:
         id: meta-web
         with:
           images: ghcr.io/${{ github.repository }}/web
+          tags: |
+            type=sha
       - uses: docker/build-push-action@v5
         with:
           push: true
@@ -39,13 +41,15 @@ jobs:
         id: meta-ingress
         with:
           images: ghcr.io/${{ github.repository }}/ingress
+          tags: |
+            type=sha
       - uses: docker/build-push-action@v5
         with:
           push: true
           target: ingress
           platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.meta-web.outputs.tags }}
-          labels: ${{ steps.meta-web.outputs.labels }}
+          tags: ${{ steps.meta-ingress.outputs.tags }}
+          labels: ${{ steps.meta-ingress.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
