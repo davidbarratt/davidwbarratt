@@ -8,11 +8,14 @@ x-default: &default
 
 services:
   ingress:
-    image: nginx:1.27-alpine
+    restart: unless-stopped
+    build:
+      context: ./
+      target: ingress
     ports:
       - 8888:80
     volumes:
-      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - files:/opt/drupal/web/sites/default/files
   web:
     build: ./
     restart: unless-stopped

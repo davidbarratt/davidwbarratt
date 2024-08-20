@@ -10,6 +10,12 @@ COPY ./ /opt/drupal
 RUN --mount=type=cache,target=/root/.composer/cache \
 	composer --no-dev install
 
+FROM  nginx:1.27-alpine as ingress
+
+COPY ./etc/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /opt/drupal/web /opt/drupal/web
+
 FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" as server
 
 # Dependencies
