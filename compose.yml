@@ -9,6 +9,8 @@ x-default: &default
 services:
   ingress:
     restart: unless-stopped
+    environment:
+      NGINX_FASTCGI_PASS: web:9000
     build:
       context: ./
       target: ingress

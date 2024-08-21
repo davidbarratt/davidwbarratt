@@ -10,13 +10,14 @@ COPY ./ /opt/drupal
 RUN --mount=type=cache,target=/root/.composer/cache \
 	composer --no-dev install
 
-FROM  nginx:1.27-alpine as ingress
+FROM  nginx:1.27-alpine AS ingress
 
-COPY ./etc/nginx/default.conf /etc/nginx/conf.d/default.conf
+# Use a .template in order to set environment variables.
+COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
 
 COPY --from=build /opt/drupal/web /opt/drupal/web
 
-FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" as server
+FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" AS server
 
 # Dependencies
 RUN apk add --no-cache \
