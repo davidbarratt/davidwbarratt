@@ -1,7 +1,7 @@
 ARG DRUPAL_VERSION="10"
 ARG PHP_VERSION="8.2"
 
-FROM --platform=$BUILDPLATFORM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" AS build
+FROM --platform=$BUILDPLATFORM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS build
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 
@@ -17,7 +17,7 @@ COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
 
 COPY --from=build /opt/drupal/web /opt/drupal/web
 
-FROM "drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine" AS server
+FROM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS server
 
 # Dependencies
 RUN apk add --no-cache \
