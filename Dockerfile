@@ -5,6 +5,10 @@ FROM --platform=$BUILDPLATFORM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-al
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 
+RUN apk add --no-cache \
+		git \
+		unzip
+
 COPY ./ /opt/drupal
 
 RUN --mount=type=cache,target=/root/.composer/cache \
@@ -21,13 +25,8 @@ FROM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS server
 
 # Dependencies
 RUN apk add --no-cache \
-    gcc \
-    g++ \
-    make \
-		git \
-		unzip \
-    imagemagick \
-    autoconf
+    $PHPIZE_DEPS \
+    imagemagick
 
 # Extensions
 RUN pecl install \
@@ -36,6 +35,8 @@ RUN pecl install \
 	&& docker-php-ext-enable \
 		apcu \
 		uploadprogress
+
+RUN apk del $PHPIZE_DEPS
 
 # Use the default production configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
