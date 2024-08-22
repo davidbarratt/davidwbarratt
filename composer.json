@@ -20,6 +20,7 @@
     "require": {
         "caseyamcl/guzzle_retry_middleware": "^2.9",
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/cloudflare_worker_purge": "^2.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
@@ -49,10 +50,16 @@
             "composer/installers": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "cweagans/composer-patches": true
         }
     },
     "extra": {
+        "patches": {
+            "drupal/purge": {
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset)": "https://www.drupal.org/files/issues/2023-09-07/purge-3094343-15.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
