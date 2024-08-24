@@ -57,7 +57,7 @@
     "extra": {
         "patches": {
             "drupal/purge": {
-                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset)": "https://www.drupal.org/files/issues/2023-09-07/purge-3094343-15.patch"
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset)": "https://git.drupalcode.org/project/purge/-/merge_requests/47.diff"
             }
         },
         "drupal-scaffold": {
