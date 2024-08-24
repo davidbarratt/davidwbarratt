@@ -4,8 +4,10 @@ ARG PHP_VERSION="8.2"
 FROM --platform=$BUILDPLATFORM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS build
 
 ENV COMPOSER_ALLOW_SUPERUSER="1"
+ENV COMPOSER_EXIT_ON_PATCH_FAILURE="1"
 
 RUN apk add --no-cache \
+    patch \
 		git \
 		unzip
 
