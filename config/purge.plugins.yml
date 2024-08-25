@@ -13,3 +13,7 @@ processors:
   -
     plugin_id: purge_ui_block_processor
     status: true
+  -
+    plugin_id: lateruntime
+    status: true
+queue: database

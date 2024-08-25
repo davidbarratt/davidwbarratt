@@ -10,7 +10,6 @@ module:
   comment: 0
   config: 0
   contextual: 0
-  ctools: 0
   datetime: 0
   dynamic_page_cache: 0
   editor: 0
@@ -43,6 +42,7 @@ module:
   path_alias: 0
   phpass: 0
   purge: 0
+  purge_processor_lateruntime: 0
   purge_queuer_coretags: 0
   purge_ui: 0
   responsive_image: 0
@@ -59,6 +59,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  http_cache_control: 1
   menu_link_content: 1
   views: 10
   standard: 1000
