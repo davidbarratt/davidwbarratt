@@ -37,8 +37,9 @@
         "drupal/s3fs": "^3.4",
         "drupal/schema_metatag": "^3.0",
         "drupal/smtp": "^1.0",
-        "drupal/stage_file_proxy": "^2.1.0",
-        "drush/drush": "^12"
+        "drupal/stage_file_proxy": "^3.1",
+        "drupal/upgrade_status": "^4.3",
+        "drush/drush": "^13.3"
     },
     "conflict": {
         "drupal/drupal": "*"

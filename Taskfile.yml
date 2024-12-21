@@ -4,13 +4,16 @@ dotenv:
   - .env
 
 tasks:
-  dev:rs:
+  dev:server:
+    env:
+      APP_DEBUG: 'true'
     internal: true
-    cmd: composer exec drush rs
+    dir: ./web
+    cmd: php -S localhost:8888
 
   drush:
     cmd: composer exec drush {{.CLI_ARGS}}
 
   dev:
     deps:
-      - dev:rs
+      - dev:server

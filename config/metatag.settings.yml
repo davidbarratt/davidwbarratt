@@ -1,1 +1,2 @@
 entity_type_groups: {  }
+tag_trim_end: '|.,-:;/+&([{"'''
