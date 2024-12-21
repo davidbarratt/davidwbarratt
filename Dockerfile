@@ -6,6 +6,10 @@ FROM --platform=$BUILDPLATFORM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-al
 ENV COMPOSER_ALLOW_SUPERUSER="1"
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE="1"
 
+# Remove the Drupal install that is in the image to prevent conflicts with the
+# version being added with Composer.
+RUN rm -rf /opt/drupal
+
 RUN apk add --no-cache \
     patch \
 		git \
@@ -24,6 +28,10 @@ COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
 COPY --from=build /opt/drupal/web /opt/drupal/web
 
 FROM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS server
+
+# Remove the Drupal install that is in the image to prevent conflicts with the
+# version being copied from the `build` layer.
+RUN rm -rf /opt/drupal
 
 # Dependencies
 RUN apk add --no-cache \
