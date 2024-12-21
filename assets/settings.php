@@ -823,8 +823,3 @@ $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
  */
 $settings['s3fs.access_key'] = getenv('S3_ACCESS_KEY') ?: '';
 $settings['s3fs.secret_key'] = getenv('S3_SECRET_KEY') ?: '';
-
-/**
- * State Cache
- */
-$settings['state_cache'] = TRUE;
