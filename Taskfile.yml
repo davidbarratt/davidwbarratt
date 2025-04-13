@@ -23,10 +23,17 @@ tasks:
     internal: true
     cmd: nginx -c etc/nginx/nginx.conf -p $PWD
 
+  php:prepare:
+    internal: true
+    cmd: mkdir -p tmp/php-fpm
+
   php:
+    deps:
+        - php:prepare
+    internal: true
     env:
       APP_DEBUG: 'true'
-    cmd: php-fpm8.4  --force-stderr --fpm-config ./etc/php/php-fpm.conf
+    cmd: php-fpm8.4 --pid $PWD/tmp/php-fpm/php-fpm.pid  --force-stderr --fpm-config ./etc/php/php-fpm.conf
 
   drush:
     cmd: composer exec drush {{.CLI_ARGS}}
