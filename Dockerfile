@@ -26,7 +26,7 @@ ENV NGINX_ROOT="/opt/drupal/web"
 ENV NGINX_PORT="80"
 
 # Use a .template in order to set environment variables.
-COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
+COPY ./etc/nginx/templates/default.conf.template /etc/nginx/templates/default.conf.template
 
 COPY --from=build /opt/drupal/web /opt/drupal/web
 
