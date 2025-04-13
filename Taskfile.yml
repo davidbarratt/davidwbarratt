@@ -1,19 +1,37 @@
 version: '3'
 
+output: prefixed
+
 dotenv:
   - .env
 
 tasks:
-  dev:server:
+  nginx:prepare:
+    internal: true
+    env:
+      NGINX_PORT: 8888
+      NGINX_FASTCGI_PASS: 'localhost:9000'
+      NGINX_ROOT: web
+    cmds:
+      - mkdir -p tmp/nginx
+      - mkdir -p etx/nginx/conf.d
+      - envsubst '$NGINX_PORT $NGINX_FASTCGI_PASS $NGINX_ROOT' < ./etc/nginx/templates/default.conf.template > ./etc/nginx/conf.d/default.conf
+
+  nginx:
+    deps:
+      - nginx:prepare
+    internal: true
+    cmd: nginx -c etc/nginx/nginx.conf -p $PWD
+
+  php:
     env:
       APP_DEBUG: 'true'
-    internal: true
-    dir: ./web
-    cmd: php -S localhost:8888
+    cmd: php-fpm8.4  --force-stderr --fpm-config ./etc/php/php-fpm.conf
 
   drush:
     cmd: composer exec drush {{.CLI_ARGS}}
 
   dev:
     deps:
-      - dev:server
+      - nginx
+      - php

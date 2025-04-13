@@ -27,6 +27,8 @@ COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
 
 COPY --from=build /opt/drupal/web /opt/drupal/web
 
+CMD ["nginx", "-g", "daemon off;", "-p", "/opt/drupal"]
+
 FROM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS server
 
 # Remove the Drupal install that is in the image to prevent conflicts with the
