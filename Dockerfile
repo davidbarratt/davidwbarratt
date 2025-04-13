@@ -22,6 +22,9 @@ RUN --mount=type=cache,target=/root/.composer/cache \
 
 FROM  nginx:1.27-alpine AS ingress
 
+ENV NGINX_ROOT="/opt/drupal/web"
+ENV NGINX_PORT="80"
+
 # Use a .template in order to set environment variables.
 COPY ./etc/nginx/default.conf /etc/nginx/templates/default.conf.template
 
