@@ -14,7 +14,7 @@ tasks:
       NGINX_ROOT: web
     cmds:
       - mkdir -p tmp/nginx
-      - mkdir -p etx/nginx/conf.d
+      - mkdir -p etc/nginx/conf.d
       - envsubst '$NGINX_PORT $NGINX_FASTCGI_PASS $NGINX_ROOT' < ./etc/nginx/templates/default.conf.template > ./etc/nginx/conf.d/default.conf
 
   nginx:
