@@ -36,6 +36,7 @@ tasks:
     cmd: php-fpm8.4 --pid $PWD/tmp/php-fpm/php-fpm.pid  --force-stderr --fpm-config ./etc/php/php-fpm.conf
 
   drush:
+    interactive: true
     cmd: composer exec drush {{.CLI_ARGS}}
 
   dev:
