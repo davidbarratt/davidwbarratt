@@ -13,6 +13,7 @@ module:
   datetime: 0
   dynamic_page_cache: 0
   editor: 0
+  error_log: 0
   field: 0
   field_ui: 0
   file: 0
@@ -27,7 +28,6 @@ module:
   layout_builder: 0
   layout_discovery: 0
   link: 0
-  log_stdout: 0
   media: 0
   media_library: 0
   menu_ui: 0
