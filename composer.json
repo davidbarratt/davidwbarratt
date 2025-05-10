@@ -10,6 +10,10 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/davidbarratt/cloudflare-php"
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -19,8 +23,10 @@
     },
     "require": {
         "caseyamcl/guzzle_retry_middleware": "^2.9",
+        "cloudflare/sdk": "dev-psr-http-upgrade as 1.4.x-dev",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
+        "drupal/cloudflare": "^2.0@beta",
         "drupal/cloudflare_worker_purge": "^2.0",
         "drupal/core-composer-scaffold": "^11",
         "drupal/core-project-message": "^11",

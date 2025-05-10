@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb53d2cc61614614fefb5d3766ffcb1e",
+    "content-hash": "978df3337112b251d9d09bf007e1ca08",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -346,6 +346,57 @@
                 "source": "https://github.com/Chi-teck/drupal-code-generator/tree/4.1.0"
             },
             "time": "2024-10-30T18:25:43+00:00"
+        },
+        {
+            "name": "cloudflare/sdk",
+            "version": "dev-psr-http-upgrade",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidbarratt/cloudflare-php.git",
+                "reference": "5716458b94ebdef4828e0bfadf6950bbd7d443c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidbarratt/cloudflare-php/zipball/5716458b94ebdef4828e0bfadf6950bbd7d443c1",
+                "reference": "5716458b94ebdef4828e0bfadf6950bbd7d443c1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0.1",
+                "php": ">=7.3",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cloudflare\\API\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "classmap": [
+                    "tests/"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Junade Ali",
+                    "email": "junade@cloudflare.com"
+                }
+            ],
+            "description": "PHP binding for v4 of the Cloudflare Client API.",
+            "support": {
+                "source": "https://github.com/davidbarratt/cloudflare-php/tree/psr-http-upgrade"
+            },
+            "time": "2025-04-20T17:39:08+00:00"
         },
         {
             "name": "composer/installers",
@@ -1411,6 +1462,94 @@
             "time": "2024-12-02T14:37:59+00:00"
         },
         {
+            "name": "drupal/cloudflare",
+            "version": "2.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/cloudflare.git",
+                "reference": "2.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/cloudflare-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "01315dda78ac645d7d7e70b23cf6f0eef67e8bf9"
+            },
+            "require": {
+                "cloudflare/sdk": "^1",
+                "drupal/core": "^10 || ^11",
+                "drupal/ctools": "^3.0 || ^4.0",
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "drupal/purge": "^3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1713212694",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "adam.weingarten",
+                    "homepage": "https://www.drupal.org/user/2677413"
+                },
+                {
+                    "name": "Brian294",
+                    "homepage": "https://www.drupal.org/user/348040"
+                },
+                {
+                    "name": "Chris Charlton",
+                    "homepage": "https://www.drupal.org/user/17089"
+                },
+                {
+                    "name": "dietric@gmail.com",
+                    "homepage": "https://www.drupal.org/user/611306"
+                },
+                {
+                    "name": "it-cru",
+                    "homepage": "https://www.drupal.org/user/324945"
+                },
+                {
+                    "name": "mandclu",
+                    "homepage": "https://www.drupal.org/user/52136"
+                },
+                {
+                    "name": "phayes",
+                    "homepage": "https://www.drupal.org/user/47098"
+                },
+                {
+                    "name": "rosk0",
+                    "homepage": "https://www.drupal.org/user/325151"
+                },
+                {
+                    "name": "vijaycs85",
+                    "homepage": "https://www.drupal.org/user/93488"
+                }
+            ],
+            "description": "Drupal module for interacting with CloudFlare's SDK. CloudFlare is a copyright of CloudFlare, Inc.  The authors of this tool has no association with CloudFlare, Inc.",
+            "homepage": "https://www.drupal.org/project/cloudflare",
+            "keywords": [
+                "CDN",
+                "Cloud Flare",
+                "CloudFlare",
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/cloudflare"
+            }
+        },
+        {
             "name": "drupal/cloudflare_worker_purge",
             "version": "2.0.0",
             "source": {
@@ -1802,6 +1941,99 @@
                 "source": "https://github.com/drupal/core-recommended/tree/11.1.7"
             },
             "time": "2025-05-08T03:56:29+00:00"
+        },
+        {
+            "name": "drupal/ctools",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ctools.git",
+                "reference": "4.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ctools-4.1.0.zip",
+                "reference": "4.1.0",
+                "shasum": "69f5889cf557df9e55519390e6a95cfa31b67874"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.0",
+                    "datestamp": "1718144949",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "branch-alias": {
+                    "dev-8.x-3.x": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Vanderwater (EclipseGc)",
+                    "homepage": "https://www.drupal.org/u/eclipsegc",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jakob Perry (japerry)",
+                    "homepage": "https://www.drupal.org/u/japerry",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Tim Plunkett (tim.plunkett)",
+                    "homepage": "https://www.drupal.org/u/timplunkett",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "James Gilliland (neclimdul)",
+                    "homepage": "https://www.drupal.org/u/neclimdul",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Daniel Wehner (dawehner)",
+                    "homepage": "https://www.drupal.org/u/dawehner",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "merlinofchaos",
+                    "homepage": "https://www.drupal.org/user/26979"
+                },
+                {
+                    "name": "neclimdul",
+                    "homepage": "https://www.drupal.org/user/48673"
+                },
+                {
+                    "name": "sdboyer",
+                    "homepage": "https://www.drupal.org/user/146719"
+                },
+                {
+                    "name": "sun",
+                    "homepage": "https://www.drupal.org/user/54136"
+                },
+                {
+                    "name": "tim.plunkett",
+                    "homepage": "https://www.drupal.org/user/241634"
+                }
+            ],
+            "description": "Provides a number of utility and helper APIs for Drupal developers and site builders.",
+            "homepage": "https://www.drupal.org/project/ctools",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ctools",
+                "issues": "https://www.drupal.org/project/issues/ctools"
+            }
         },
         {
             "name": "drupal/error_log",
@@ -13321,9 +13553,18 @@
             "time": "2022-06-03T18:03:27+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "cloudflare/sdk",
+            "version": "dev-psr-http-upgrade",
+            "alias": "1.4.x-dev",
+            "alias_normalized": "1.4.9999999.9999999-dev"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "cloudflare/sdk": 20,
+        "drupal/cloudflare": 10,
         "drupal/name": 5
     },
     "prefer-stable": true,
