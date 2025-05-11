@@ -657,8 +657,6 @@ foreach ($smtp as $key) {
   }
 }
 
-$config['cloudflare.settings']['api_token'] = getenv('CF_API_TOKEN') ?: '';
-
 /**
  * Fast 404 pages:
  *

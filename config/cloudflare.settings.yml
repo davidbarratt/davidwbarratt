@@ -1,0 +1,13 @@
+_core:
+  default_config_hash: 07gahgA51BFf_k39MkBcKeVeAkYlxA7L_C_Kb1Ei870
+client_ip_restore_enabled: false
+remote_addr_validate: false
+bypass_host: ''
+valid_credentials: true
+zone_id:
+  3b6f1e19b88afbccf143054ad2cdd45f: 3b6f1e19b88afbccf143054ad2cdd45f
+zone_name: ''
+auth_using: token
+api_token: null
+apikey: ''
+email: ''

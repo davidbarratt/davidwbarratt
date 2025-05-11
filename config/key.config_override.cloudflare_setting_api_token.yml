@@ -1,0 +1,14 @@
+uuid: 33ee5dff-0fc5-4680-befb-e4fb321c1a99
+langcode: en
+status: true
+dependencies:
+  config:
+    - cloudflare.settings
+    - key.key.cloudflare_api_token
+id: cloudflare_setting_api_token
+label: 'Cloudflare Setting API Token'
+config_type: system.simple
+config_prefix: ''
+config_name: cloudflare.settings
+config_item: api_token
+key_id: cloudflare_api_token
