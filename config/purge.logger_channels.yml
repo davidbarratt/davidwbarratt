@@ -24,10 +24,8 @@ channels:
       - 3
       - 4
   -
-    id: purger_cloudflare_worker_0b7da3a883
+    id: purger_cloudflare_9a235f0ae1
     grants:
       - 0
-      - 1
       - 2
       - 3
-      - 4

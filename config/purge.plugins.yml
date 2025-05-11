@@ -1,7 +1,7 @@
 purgers:
   -
-    instance_id: 0b7da3a883
-    plugin_id: cloudflare_worker
+    instance_id: 9a235f0ae1
+    plugin_id: cloudflare
     order_index: 2
 processors:
   -

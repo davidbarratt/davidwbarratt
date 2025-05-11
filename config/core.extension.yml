@@ -8,6 +8,7 @@ module:
   ckeditor5: 0
   cloudflare: 0
   cloudflare_worker_purge: 0
+  cloudflarepurger: 0
   comment: 0
   config: 0
   contextual: 0
