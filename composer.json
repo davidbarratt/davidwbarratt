@@ -67,7 +67,12 @@
     "extra": {
         "patches": {
             "drupal/purge": {
-                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset)": "https://git.drupalcode.org/project/purge/-/merge_requests/47.diff"
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [1/6]": "https://git.drupalcode.org/project/purge/-/commit/9f3cb2685513bbabd362f7111f808632f06cc2fb.diff",
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [2/6]": "https://git.drupalcode.org/project/purge/-/commit/c3ce33a932d84096df197a170c70edb3840ab3fe.diff",
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [3/6]": "https://git.drupalcode.org/project/purge/-/commit/bf35b8018f23f5a872384dd9532abc2e91f33093.diff",
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [4/6]": "https://git.drupalcode.org/project/purge/-/commit/54c4101239bf0e65fe5bdd83beeb742b8dd274e7.diff",
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [5/6]": "https://git.drupalcode.org/project/purge/-/commit/902b823cd2169d34e3012afe04b90163711d44eb.diff",
+                "Issue #3094343: Queue confusion on replicated databases (auto_increment_offset) [6/6]": "https://git.drupalcode.org/project/purge/-/commit/038eff0b867f1b67aada94ebdbc42399e52a4569.diff"
             }
         },
         "drupal-scaffold": {
