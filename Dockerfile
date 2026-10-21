@@ -36,6 +36,12 @@ CMD ["nginx", "-g", "daemon off;", "-p", "/opt/drupal"]
 
 FROM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS server
 
+# ARG declarations before the first FROM are only substituted into FROM lines, so
+# re-declare them here (defaults come from the global ARGs at the top of the
+# file) or they expand to nothing inside this stage.
+ARG APCU_VERSION
+ARG UPLOADPROGRESS_VERSION
+
 # Remove the Drupal install that is in the image to prevent conflicts with the
 # version being copied from the `build` layer.
 RUN rm -rf /opt/drupal
@@ -57,7 +63,9 @@ RUN apk add --no-cache \
 # Consequence: these versions are pinned and must be bumped by hand. Drop the
 # URLs back to plain package names once PECL restores its REST endpoints:
 # https://github.com/php/web-pecl
-RUN pecl install \
+RUN : "${APCU_VERSION:?APCU_VERSION is empty: declare it in this stage}" \
+    && : "${UPLOADPROGRESS_VERSION:?UPLOADPROGRESS_VERSION is empty: declare it in this stage}" \
+    && pecl install \
         "https://pecl.php.net/get/apcu-${APCU_VERSION}.tgz" \
         "https://pecl.php.net/get/uploadprogress-${UPLOADPROGRESS_VERSION}.tgz" \
     && docker-php-ext-enable \
