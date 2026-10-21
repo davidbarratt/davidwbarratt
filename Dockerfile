@@ -1,5 +1,7 @@
 ARG DRUPAL_VERSION="11"
 ARG PHP_VERSION="8.3"
+ARG APCU_VERSION="5.1.28"
+ARG UPLOADPROGRESS_VERSION="2.0.2"
 
 FROM --platform=$BUILDPLATFORM drupal:${DRUPAL_VERSION}-php${PHP_VERSION}-fpm-alpine AS build
 
@@ -44,12 +46,23 @@ RUN apk add --no-cache \
     imagemagick
 
 # Extensions
+#
+# Pass the release archives instead of package names. `pecl install <name>`
+# resolves the latest release through the channel's REST API, and
+# https://pecl.php.net/rest/r/<package>/info.xml currently returns 404 (the site
+# now sits behind BunnyCDN), so name-based installs fail immediately with
+# `No releases available for package "pecl.php.net/apcu"`. The /get/<pkg>-<ver>.tgz
+# download path and the build itself are unaffected.
+#
+# Consequence: these versions are pinned and must be bumped by hand. Drop the
+# URLs back to plain package names once PECL restores its REST endpoints:
+# https://github.com/php/web-pecl
 RUN pecl install \
-		apcu \
-		uploadprogress \
-	&& docker-php-ext-enable \
-		apcu \
-		uploadprogress
+        "https://pecl.php.net/get/apcu-${APCU_VERSION}.tgz" \
+        "https://pecl.php.net/get/uploadprogress-${UPLOADPROGRESS_VERSION}.tgz" \
+    && docker-php-ext-enable \
+        apcu \
+        uploadprogress
 
 RUN apk del $PHPIZE_DEPS
 
